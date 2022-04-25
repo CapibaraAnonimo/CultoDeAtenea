@@ -1,4 +1,4 @@
-package com.CultoDeAtenea.Producto;
+package producto;
 
 import java.net.URL;
 import java.util.Locale.IsoCountryCode;
