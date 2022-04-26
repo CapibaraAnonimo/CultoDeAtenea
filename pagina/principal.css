@@ -1,4 +1,4 @@
-body {
+body>div:first-child{
     background-image: linear-gradient(to right bottom, #1a2c48, #2a405b, #3b546f, #4d6a82, #618096, #6d92a6, #7aa4b5, #89b7c4, #94c9d0, #a3dbdb, #b4ede4, #c8ffec);
     background-repeat: no-repeat;
 }
@@ -6,4 +6,8 @@ body {
 .dropdown:hover .dropdown-menu {
     display: block;
     margin-top: 0; // remove the gap so it doesn't close
+}
+
+.modal-backdrop {
+    z-index: -1;
 }
