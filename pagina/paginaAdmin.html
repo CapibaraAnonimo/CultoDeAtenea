@@ -87,10 +87,10 @@
     </div>
 </nav>
 
-<div class="py-sm-0 px-sm-0 py-md-2 px-md-4">
-    <div class="row flex-sm-wrap">
+<div class="py-0 px-0 py-md-2 px-md-4">
+    <div class="row flex-wrap">
         <!--Navegación del contenido principal-->
-        <nav class="navbar navbar-dark bg-dark col-sm-12 col-md-2">
+        <nav class="navbar navbar-dark bg-dark col-12 col-md-2">
             <div class="container-fluid collapse navbar navbar-collapse" id="nav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item border border-primary"><a class="nav-link" href="#">Cosa 1</a></li>
@@ -101,33 +101,70 @@
             </div>
         </nav>
 
-        <main class="mt-sm-5 mt-md-0 col-sm12 col-md-9 bg-dark mx-auto overflow-auto text-light">
+        <main class="mt-5 mt-md-0 col-12 col-md-9 bg-dark mx-auto overflow-auto text-light p-5">
             <form action="#">
                 <div class="row">
-                    <div class="col-md-5">
+                    <div class="col-md-6 mb-5">
                         <div class="form-floating">
                             <input type="text" class="form-control col-md-4 bg-" placeholder="Nombre del producto"
-                                   id="nombre"
-                                   name="nombre">
-                            <label for="nombre" class="form-label text-dark">Nombre del Productooo</label>
+                                   id="nombre" name="nombre" required>
+                            <label for="nombre" class="form-label text-dark">Nombre del Producto</label>
                         </div>
                     </div>
 
-                    <div class="col-md-5">
+                    <div class="col-md-6 mb-5">
                         <div class="form-floating">
-                            <input type="text" class="form-control col-md-4" placeholder="Nombre del producto"
-                                   id="imagen"
-                                   name="nombre">
-                            <label for="imagen" class="form-label text-dark">Imagen del Productooo</label>
+                            <input type="url" class="form-control col-md-4" placeholder="Nombre del producto"
+                                   id="imagen" name="nombre" required>
+                            <label for="imagen" class="form-label text-dark">Imagen del Producto</label>
                         </div>
                     </div>
                 </div>
+
+
                 <div class="row">
-                    <label class="form-label">Marca</label>
+                    <div class="col-8 col-md-5 mb-5">
+                        <div class="form-floating">
+                            <select class="form-select" id="marca" required>
+                                <option selected>Escoge una Opción</option>
+                                <option value="Marca1">Marca1</option>
+                                <option value="Marca2">Marca2</option>
+                                <option value="Marca3">Marca3</option>
+                            </select>
+                            <label class="form-label text-dark" for="marca">Marca</label>
+                        </div>
+                    </div>
+
+                    <div class="col-4 col-md-2">
+                        <button type="button" class="btn-lg btn-dark  bg-primary bg-opacity-10">
+                            Nueva Marca
+                        </button>
+                    </div>
+
+                    <div class="col-12 col-md-5 mb-5">
+                        <div class="form-floating">
+                            <select class="form-select" id="categoria" required>
+                                <option selected>Escoge una Opción</option>
+                                <option value="Categoría1">Categoría1</option>
+                                <option value="Categoría2">Categoría2</option>
+                                <option value="Categoría3">Categoría3</option>
+                            </select>
+                            <label class="form-label text-dark" for="categoria">Categoría</label>
+                        </div>
+                    </div>
                 </div>
+
+
                 <div class="row">
-                    <label class="form-label">Categoría</label>
+                    <div>
+                        <div class="form-floating">
+                            <input type="number" class="form-control" id="precio" min="0" step="0.01">
+                            <label class="form-label text-dark" for="precio">Precio</label>
+                        </div>
+                    </div>
                 </div>
+
+
                 <div class="row">
                     <label class="form-label">Descripción</label>
                     <textarea class="col-md-4"></textarea>
