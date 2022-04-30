@@ -92,31 +92,31 @@
         <!--Navegación del contenido principal-->
         <nav class="navbar navbar-dark bg-dark col-12 col-md-2">
             <div class="container-fluid collapse navbar navbar-collapse" id="nav">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item border border-primary"><a class="nav-link" href="#">Cosa 1</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Cosa 2</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Cosa 3</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Cosa 4</a></li>
+                <ul class="navbar-nav mx-auto d-flex flex-column justify-content-around flex-grow-1">
+                    <li class="nav-item border border-primary m-auto"><a class="nav-link" href="#">Cosa 1</a></li>
+                    <li class="nav-item m-auto"><a class="nav-link" href="#">Cosa 2</a></li>
+                    <li class="nav-item m-auto"><a class="nav-link" href="#">Cosa 3</a></li>
+                    <li class="nav-item m-auto"><a class="nav-link" href="#">Cosa 4</a></li>
                 </ul>
             </div>
         </nav>
 
-        <main class="mt-5 mt-md-0 col-12 col-md-9 bg-dark mx-auto overflow-auto text-light p-5">
+        <main class="mt-5 mt-md-0 col-12 col-md-9 bg-dark mx-auto overflow-auto text-dark p-5">
             <form action="#">
                 <div class="row">
                     <div class="col-md-6 mb-5">
                         <div class="form-floating">
                             <input type="text" class="form-control col-md-4 bg-" placeholder="Nombre del producto"
                                    id="nombre" name="nombre" required>
-                            <label for="nombre" class="form-label text-dark">Nombre del Producto</label>
+                            <label for="nombre" class="form-label ">Nombre del Producto</label>
                         </div>
                     </div>
 
                     <div class="col-md-6 mb-5">
                         <div class="form-floating">
-                            <input type="url" class="form-control col-md-4" placeholder="Nombre del producto"
-                                   id="imagen" name="nombre" required>
-                            <label for="imagen" class="form-label text-dark">Imagen del Producto</label>
+                            <input type="url" class="form-control col-md-4" placeholder="Imagen del producto"
+                                   id="imagen" name="imagen">
+                            <label for="imagen" class="form-label ">Imagen del Producto</label>
                         </div>
                     </div>
                 </div>
@@ -131,7 +131,7 @@
                                 <option value="Marca2">Marca2</option>
                                 <option value="Marca3">Marca3</option>
                             </select>
-                            <label class="form-label text-dark" for="marca">Marca</label>
+                            <label class="form-label " for="marca">Marca</label>
                         </div>
                     </div>
 
@@ -149,38 +149,38 @@
                                 <option value="Categoría2">Categoría2</option>
                                 <option value="Categoría3">Categoría3</option>
                             </select>
-                            <label class="form-label text-dark" for="categoria">Categoría</label>
+                            <label class="form-label " for="categoria">Categoría</label>
                         </div>
                     </div>
                 </div>
 
 
                 <div class="row">
-                    <div class="col-12 col-md-6">
+                    <div class="col-12 col-md-6 mb-5">
                         <div class="form-floating">
-                            <input type="number" class="form-control" id="precio" min="0" step="0.01">
-                            <label class="form-label text-dark" for="precio">Precio</label>
+                            <input type="number" class="form-control" id="precio" min="0" step="0.01" required>
+                            <label class="form-label " for="precio">Precio</label>
                         </div>
                     </div>
 
-                    <div class="col-12 col-md-6">
-                        <div class="form-check-inline d-flex justify-content-between">
+                    <div class="col-12 col-md-6 mb-5">
+                        <div class="form-check-inline d-flex justify-content-around">
                             <div>
                                 <input class="form-check-input" type="radio" name="categoria" id="battleReady"
-                                       value="battleReady">
-                                <label class="form-check-label" for="battleReady">Battle Ready</label>
+                                       value="battleReady" required>
+                                <label class="form-check-label text-light" for="battleReady">Battle Ready</label>
                             </div>
 
                             <div>
                                 <input class="form-check-input" type="radio" name="categoria" id="exhibicion"
                                        value="exhibicion">
-                                <label class="form-check-label" for="exhibicion">Battle Ready</label>
+                                <label class="form-check-label text-light" for="exhibicion">Exhibición</label>
                             </div>
 
                             <div>
                                 <input class="form-check-input" type="radio" name="categoria" id="decorativa"
                                        value="decorativa">
-                                <label class="form-check-label" for="decorativa">Battle Ready</label>
+                                <label class="form-check-label text-light" for="decorativa">Decorativa</label>
                             </div>
                         </div>
                     </div>
@@ -188,11 +188,138 @@
 
 
                 <div class="row">
-                    <label class="form-label">Descripción</label>
-                    <textarea class="col-md-4"></textarea>
+                    <div class="col-12 col-md-6 mb-5">
+                        <div class="form-floating">
+                            <textarea class="form-control" placeholder="Descripción" id="descripcion"
+                                      required></textarea>
+                            <label class="form-label " for="descripcion">Descripción</label>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 mb-5">
+                        <div class="form-floating">
+                            <input type="number" class="form-control" id="longitudTotal" min="0" step="0.01">
+                            <label class="form-label " for="longitudTotal">Longitud Total</label>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-12 col-md-6 mb-5">
+                        <div class="form-floating">
+                            <input type="number" class="form-control" id="longitudHoja" min="0" step="0.01">
+                            <label class="form-label " for="longitudHoja">Longitud hoja</label>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 mb-5">
+                        <div class="form-check-inline d-flex justify-content-around">
+                            <div>
+                                <input class="form-check-input" type="radio" name="filo" id="afilado"
+                                       value="battleReady">
+                                <label class="form-check-label text-light" for="afilado">Hoja Afilada</label>
+                            </div>
+
+                            <div>
+                                <input class="form-check-input" type="radio" name="filo" id="sinAfilar"
+                                       value="exhibicion">
+                                <label class="form-check-label text-light" for="sinAfilar">Hoja sin Afilar</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-12 col-md-6 mb-5">
+                        <div class="form-floating">
+                            <input type="number" class="form-control" id="peso" min="0" step="0.01">
+                            <label class="form-label " for="peso">Peso</label>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 mb-5">
+                        <div class="form-floating">
+                            <input type="number" class="form-control" id="grosor" min="0" step="0.01">
+                            <label class="form-label " for="grosor">Grosor</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 col-md-6 mb-5">
+                        <div class="form-floating">
+                            <input type="number" class="form-control" id="anchura" min="0" step="0.01">
+                            <label class="form-label " for="anchura">Anchura</label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-5">
+                        <div class="form-floating">
+                            <input type="text" class="form-control col-md-4 bg-" placeholder="Anclaje del pomo"
+                                   id="pomo" name="pomo">
+                            <label for="pomo" class="form-label ">Anclaje del Pomo</label>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-12 col-md-6 mb-5">
+                        <div class="form-floating">
+                            <input type="number" class="form-control" id="pdb" min="0" step="0.01">
+                            <label class="form-label " for="pdb">Punto de Balance</label>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 mb-5">
+                        <div class="form-floating">
+                            <input type="number" class="form-control" id="longitudMango" min="0" step="0.01">
+                            <label class="form-label " for="longitudMango">Longitud del Mango</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-5">
+                        <div class="form-floating">
+                            <input type="text" class="form-control col-md-4 bg-" placeholder="Tipo de Acero"
+                                   id="acero" name="acero">
+                            <label for="acero" class="form-label ">Tipo de Acero</label>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 mb-5">
+                        <div class="form-floating">
+                            <textarea class="form-control" placeholder="Dimensiones" id="dimensiones"></textarea>
+                            <label class="form-label " for="dimensiones">Dimensiones</label>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-6 mb-5">
+                        <div class="form-floating">
+                            <input type="text" class="form-control col-md-4 bg-" placeholder="Fabricante"
+                                   id="fabricante" name="fabricante">
+                            <label for="fabricante" class="form-label ">Fabricante</label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-5">
+                        <div class="form-floating">
+                            <input type="text" class="form-control col-md-4 bg-" placeholder="Pais"
+                                   id="pais" name="pais">
+                            <label for="pais" class="form-label ">Pais</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <button type="submit" class="btn btn-primary mx-auto col-3 col-md-4 col-lg-3 col-xxl-2">Añadir Producto</button>
                 </div>
             </form>
-            <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         </main>
     </div>
 </div>

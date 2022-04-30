@@ -9,11 +9,12 @@ public class Producto {
 	private String marca;
 	private String categoria;
 	private int precio;
+	private String clasificación;
 	private String descripcion;
 	//Campos Opcionales
 	private double longitudTotal; //cm
 	private double longitudHoja; //cm
-	private String filo; //Tipo de filo: afilado, sin afilar, practica(hema)
+	private String filo; //Tipo de filo: afilado, sin afilar
 	private double peso; //kg
 	private double grosor; //mm
 	private double anchura; //mm
@@ -22,7 +23,6 @@ public class Producto {
 	private double longitudMango; //cm
 	private String acero; //tipo de acero
 	private String dimensiones; //dimensiones especificas
-	private String tipo;
 	private String fabricante;
 	private IsoCountryCode pais;
 	
