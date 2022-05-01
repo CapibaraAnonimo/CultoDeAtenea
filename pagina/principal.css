@@ -3,6 +3,12 @@ body > div:first-of-type {
     background-repeat: no-repeat;
 }
 
+.nav-link{
+    color: #939fad;
+}
+.nav-link:hover, .nav-link:focus{
+    color: #b0bfd0;
+}
 /*
 body>div:first-of-type>nav{
     min-width: 175px;
