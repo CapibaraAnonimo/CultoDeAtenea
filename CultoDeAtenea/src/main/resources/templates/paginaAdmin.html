@@ -347,8 +347,15 @@
                 <div class="tab-pane fade" id="productoExistente">
                     <div class="row">
                         <div class="border-5 bg-danger col col-12">
-                            <div th:each="producto : ${listaProductos}">
-                                <div th:text="${producto.nombre}"></div>
+                            <div class="row justify-content-around" th:each="producto : ${listaProductos}">
+                                <div class="col-2" th:text="${producto.nombre}"></div>
+                                <div class="col-2" style="height: 50px"><img
+                                        
+                                        alt="" class="col-2" style="max-height: 100%; width: auto; display: block"
+                                        th:src="${producto.imagen}"></div>
+                                <div class="col-2" th:text="${producto.marca}"></div>
+                                <div class="col-2" th:text="${producto.categoria}"></div>
+                                <div class="col-2" th:text="${producto.precio}"></div>
                             </div>
                         </div>
                     </div>

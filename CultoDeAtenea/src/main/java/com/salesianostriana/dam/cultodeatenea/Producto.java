@@ -12,7 +12,7 @@ public class Producto {
 	private URL imagen;
 	private String marca;
 	private String categoria;
-	private int precio;
+	private double precio;
 	private String clasificacion;
 	private String descripcion;
 	//Campos Opcionales
@@ -32,6 +32,14 @@ public class Producto {
 	
 	public Producto(String nombre) {
 		this.nombre = nombre;
+	}
+
+	public Producto(String nombre, URL imagen, String marca, String categoria, int precio) {
+		this.nombre = nombre;
+		this.imagen = imagen;
+		this.marca = marca;
+		this.categoria = categoria;
+		this.precio = precio;
 	}
 	
 }
