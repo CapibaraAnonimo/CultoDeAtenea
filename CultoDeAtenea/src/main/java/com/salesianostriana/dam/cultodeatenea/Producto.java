@@ -1,8 +1,12 @@
-package producto;
+package com.salesianostriana.dam.cultodeatenea;
 
 import java.net.URL;
 import java.util.Locale.IsoCountryCode;
 
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
+
+@Data @RequiredArgsConstructor
 public class Producto {
 	private String nombre;
 	private URL imagen;
@@ -26,5 +30,8 @@ public class Producto {
 	private String fabricante;
 	private IsoCountryCode pais;
 	
-
+	public Producto(String nombre) {
+		this.nombre = nombre;
+	}
+	
 }
