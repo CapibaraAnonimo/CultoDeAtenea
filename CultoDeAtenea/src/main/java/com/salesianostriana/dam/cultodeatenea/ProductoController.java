@@ -21,10 +21,10 @@ public class ProductoController {
 					"https://s3.amazonaws.com/koa-media-library/wp-media-folder-kult-of-athena/wp-content/uploads/2021/11/DSC3686.jpg"),
 					"Albion", "Espada", 1000));
 			productos.add(new Producto("Espadón", new URL(
-					"https://s3.amazonaws.com/koa-media-library/wp-media-folder-kult-of-athena/wp-content/uploads/2021/11/DSC3686.jpg"),
+					"https://s3.amazonaws.com/koa-media-library/wp-media-folder-kult-of-athena//www/wp-content/uploads/2020/11/DT5161_1_L.jpg"),
 					"Albion", "Espada", 1250));
 			productos.add(new Producto("Bardiche", new URL(
-					"https://s3.amazonaws.com/koa-media-library/wp-media-folder-kult-of-athena/wp-content/uploads/2021/11/DSC3686.jpg"),
+					"https://s3.amazonaws.com/koa-media-library/wp-media-folder-kult-of-athena//www/wp-content/uploads/2020/11/AH3508_2_L.jpg"),
 					"Albion", "Arma de Asta", 800));
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
