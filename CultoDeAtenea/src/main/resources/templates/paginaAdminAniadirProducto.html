@@ -11,9 +11,9 @@
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"></script>
 
-    <link rel='stylesheet' type='text/css' media='screen' href='./principal.css'>
-    <script type="text/javascript" src="./principal.js" defer></script>
-    <script type="text/javascript" src="./escaladoPaginaAdmin.js" defer></script>
+    <link rel='stylesheet' type='text/css' media='screen' href='./principal.css' th:href="@{/principal.css}">
+    <script type="text/javascript" src="./principal.js" defer th:src="@{/principal.js}"></script>
+    <script type="text/javascript" src="./escaladoPaginaAdmin.js" defer th:src="@{/escaladoPaginaAdmin.js}"></script>
 </head>
 <body>
 <!--Barra de navegación-->
@@ -95,7 +95,7 @@
             <div class="container-fluid collapse navbar navbar-collapse h-50" id="nav">
                 <ul class="navbar-nav mx-auto d-flex flex-column justify-content-evenly flex-grow-1 h-100">
                     <li class="nav-item border border-light m-auto w-100 text-center py-md-2"><a class="nav-link" href="#">Noticias</a></li>
-                    <li class="nav-item border border-light m-auto w-100  text-center py-md-2"><a class="nav-link" href="paginaAdminAniadirProducto.html" th:href="@{/productos}">Añadir Productos</a></li>
+                    <li class="nav-item border border-light m-auto w-100  text-center py-md-2"><a class="nav-link" href="paginaAdminAniadirProducto.html" th:href="@{/admin/productos}">Añadir Productos</a></li>
                     <li class="nav-item border border-light m-auto w-100  text-center py-md-2"><a class="nav-link" href="#">Editar Producto</a></li>
                     <li class="nav-item border border-light m-auto w-100  text-center py-md-2"><a class="nav-link" href="#">Cosa 4</a></li>
                 </ul>

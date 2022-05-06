@@ -12,7 +12,7 @@ import java.util.ArrayList;
 @Controller
 public class ProductoController {
 
-	@GetMapping("/productos")
+	@GetMapping("admin/productos")
 	public String controladorProducto(Model model) {
 		List<Producto> productos = new ArrayList<Producto>();
 
