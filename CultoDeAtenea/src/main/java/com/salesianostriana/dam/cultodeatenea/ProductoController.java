@@ -4,6 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.salesianostriana.dam.model.Producto;
+
 import java.util.List;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -12,7 +14,7 @@ import java.util.ArrayList;
 @Controller
 public class ProductoController {
 
-	@GetMapping("admin/productos")
+	@GetMapping("admin/nuevoProducto")
 	public String controladorProducto(Model model) {
 		List<Producto> productos = new ArrayList<Producto>();
 
@@ -32,7 +34,7 @@ public class ProductoController {
 		}
 
 		model.addAttribute("listaProductos", productos);
-		return "paginaAdminAniadirProducto";
+		return "admin/paginaAdminAniadirProducto";
 	}
 
 }

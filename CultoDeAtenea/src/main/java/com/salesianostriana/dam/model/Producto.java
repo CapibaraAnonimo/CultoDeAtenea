@@ -1,4 +1,4 @@
-package com.salesianostriana.dam.cultodeatenea;
+package com.salesianostriana.dam.model;
 
 import java.net.URL;
 import java.util.Locale.IsoCountryCode;
