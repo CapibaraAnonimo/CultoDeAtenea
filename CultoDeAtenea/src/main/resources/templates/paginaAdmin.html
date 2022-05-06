@@ -360,7 +360,7 @@
                              th:each="producto : ${listaProductos}">
                             <div class="col-2" th:text="${producto.nombre}"></div>
                             <div class="col-2" style="height: 50px">
-                                <img alt="" class="col-2" style="max-height: 100%; width: 70px; display: block; object-fit: cover;"
+                                <img alt="" th:alt="${producto.nombre}" class="col-2" style="max-height: 100%; width: 70px; display: block; object-fit: cover;"
                                      th:src="${producto.imagen}">
                             </div>
                             <div class="col-2" th:text="${producto.marca}"></div>
