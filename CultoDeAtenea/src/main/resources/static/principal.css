@@ -9,6 +9,11 @@ body > div:first-of-type {
 .nav-link:hover, .nav-link:focus{
     color: #b0bfd0;
 }
+
+.modal-backdrop {
+    position: unset;
+}
+
 /*
 body>div:first-of-type>nav{
     min-width: 175px;
