@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 
 @Data @RequiredArgsConstructor
 public class Venta {
+	private long idVenta;
 	private List<LineaVenta> productos;
 	private double total;
 

@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 
 @Data @RequiredArgsConstructor
 public class Producto {
+	private long idProducto;
 	private String nombre;
 	private URL imagen;
 	private String marca;
