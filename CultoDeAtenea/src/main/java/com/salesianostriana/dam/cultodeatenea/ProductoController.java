@@ -32,7 +32,7 @@ public class ProductoController {
 		}
 
 		model.addAttribute("listaProductos", productos);
-		return "paginaAdmin";
+		return "paginaAdminAniadirProducto";
 	}
 
 }
