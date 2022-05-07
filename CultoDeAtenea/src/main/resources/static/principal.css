@@ -14,6 +14,10 @@ body > div:first-of-type {
     position: unset;
 }
 
+.noticia{
+    width: 25vw;
+    height: fit-content;
+}
 /*
 body>div:first-of-type>nav{
     min-width: 175px;
