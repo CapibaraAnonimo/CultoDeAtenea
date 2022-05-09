@@ -1,4 +1,4 @@
-package com.salesianostriana.dam.model;
+package com.salesianostriana.dam.cultodeatenea.model;
 
 import java.util.List;
 
