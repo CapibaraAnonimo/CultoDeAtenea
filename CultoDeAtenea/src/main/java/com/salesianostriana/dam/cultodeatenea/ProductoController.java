@@ -3,6 +3,8 @@ package com.salesianostriana.dam.cultodeatenea;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.salesianostriana.dam.cultodeatenea.model.Producto;
 
@@ -34,6 +36,12 @@ public class ProductoController {
 		}
 
 		model.addAttribute("listaProductos", productos);
+		return "admin/paginaAdminAniadirProducto";
+	}
+
+	@PostMapping("admin/nuevoProducto/submit")
+	public String enviarFormularioNuevoProducto(@ModelAttribute("producto") Producto producto) {
+		System.out.println(producto);
 		return "admin/paginaAdminAniadirProducto";
 	}
 
