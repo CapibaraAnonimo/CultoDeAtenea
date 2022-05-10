@@ -1,5 +1,9 @@
 package com.salesianostriana.dam.cultodeatenea.repository;
 
-public class productoRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.salesianostriana.dam.cultodeatenea.model.Producto;
+
+public interface productoRepository extends JpaRepository<Producto, Long> {
 
 }
