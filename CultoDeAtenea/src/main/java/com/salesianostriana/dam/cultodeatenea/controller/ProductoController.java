@@ -1,4 +1,4 @@
-package com.salesianostriana.dam.cultodeatenea;
+package com.salesianostriana.dam.cultodeatenea.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
