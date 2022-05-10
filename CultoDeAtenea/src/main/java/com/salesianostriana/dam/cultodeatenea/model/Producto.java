@@ -12,11 +12,16 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity @Data @AllArgsConstructor @NoArgsConstructor @Builder
+@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Producto {
-	@Id @GeneratedValue
+	@Id
+	@GeneratedValue
 	private long id;
-	
+
 	private String nombre;
 	private URL imagen;
 	private String marca;
@@ -24,21 +29,21 @@ public class Producto {
 	private double precio;
 	private String clasificacion;
 	private String descripcion;
-	//Campos Opcionales
-	private double longitudTotal; //cm
-	private double longitudHoja; //cm
-	private String filo; //Tipo de filo: afilado, sin afilar
-	private double peso; //kg
-	private double grosor; //mm
-	private double anchura; //mm
-	private String pomo; //Tipo de pomo
-	private double pdb; //Punto de balance a partir de la guarda, cm
-	private double longitudMango; //cm
-	private String acero; //tipo de acero
-	private String dimensiones; //dimensiones especificas
+	// Campos Opcionales
+	private double longitudTotal; // cm
+	private double longitudHoja; // cm
+	private String filo; // Tipo de filo: afilado, sin afilar
+	private double peso; // kg
+	private double grosor; // mm
+	private double anchura; // mm
+	private String pomo; // Tipo de pomo
+	private double pdb; // Punto de balance a partir de la guarda, cm
+	private double longitudMango; // cm
+	private String acero; // tipo de acero
+	private String dimensiones; // dimensiones especificas
 	private String fabricante;
 	private IsoCountryCode pais;
-	
+
 	public Producto(String nombre) {
 		this.nombre = nombre;
 	}
@@ -50,5 +55,5 @@ public class Producto {
 		this.categoria = categoria;
 		this.precio = precio;
 	}
-	
+
 }

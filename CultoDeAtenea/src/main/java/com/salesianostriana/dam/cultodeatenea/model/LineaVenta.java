@@ -10,14 +10,32 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity @Data @AllArgsConstructor @NoArgsConstructor @Builder
+@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class LineaVenta {
-	@Id @GeneratedValue
+	@Id
+	@GeneratedValue
 	private long id;
-	
+
 	@ManyToOne
 	private Producto producto;
 	private int cantidad;
 	private double subtotal;
+
+	@ManyToOne
+	private Venta venta;
+	
+	public void addToVenta(Venta curso) {
+		this.venta = curso;
+		venta.getProductos().add(this);
+	}
+	
+	public void removeFromVenta(Venta curso) {
+		venta.getProductos().remove(this);
+		this.venta = null;
+	}
 
 }
