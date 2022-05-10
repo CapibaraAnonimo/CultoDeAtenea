@@ -1,11 +1,21 @@
 package com.salesianostriana.dam.cultodeatenea.model;
 
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
-@Data @RequiredArgsConstructor
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity @Data @AllArgsConstructor @NoArgsConstructor @Builder
 public class LineaVenta {
-	private long idLineaVenta;
+	@Id @GeneratedValue
+	private long id;
+	
+	@ManyToOne
 	private Producto producto;
 	private int cantidad;
 	private double subtotal;
