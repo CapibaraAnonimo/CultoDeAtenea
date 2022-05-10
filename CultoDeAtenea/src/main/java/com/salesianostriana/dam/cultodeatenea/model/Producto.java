@@ -3,18 +3,19 @@ package com.salesianostriana.dam.cultodeatenea.model;
 import java.net.URL;
 import java.util.Locale.IsoCountryCode;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
-@Data @AllArgsConstructor @NoArgsConstructor
+@Entity @Data @AllArgsConstructor @NoArgsConstructor @Builder
 public class Producto {
 	@Id @GeneratedValue
-	private long idProducto;
+	private long id;
 	
 	private String nombre;
 	private URL imagen;

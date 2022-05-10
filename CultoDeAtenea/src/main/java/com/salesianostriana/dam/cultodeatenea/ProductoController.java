@@ -16,7 +16,7 @@ import java.util.ArrayList;
 @Controller
 public class ProductoController {
 
-	@GetMapping("admin/nuevoProducto")
+	@GetMapping("/admin/nuevoProducto")
 	public String controladorProducto(Model model) {
 		List<Producto> productos = new ArrayList<Producto>();
 
@@ -36,10 +36,11 @@ public class ProductoController {
 		}
 
 		model.addAttribute("listaProductos", productos);
+		model.addAttribute("producto", new Producto());
 		return "admin/paginaAdminAniadirProducto";
 	}
 
-	@PostMapping("admin/nuevoProducto/submit")
+	@PostMapping("/admin/nuevoProducto/submit")
 	public String enviarFormularioNuevoProducto(@ModelAttribute("producto") Producto producto) {
 		System.out.println(producto);
 		return "admin/paginaAdminAniadirProducto";

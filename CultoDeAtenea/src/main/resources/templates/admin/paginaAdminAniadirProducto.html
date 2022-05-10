@@ -13,7 +13,8 @@
 
     <link rel='stylesheet' type='text/css' media='screen' href='../../static/principal.css' th:href="@{/principal.css}">
     <script type="text/javascript" src="../../static/principal.js" defer th:src="@{/principal.js}"></script>
-    <script type="text/javascript" src="../../static/escaladoPaginaAdmin.js" defer th:src="@{/escaladoPaginaAdmin.js}"></script>
+    <script type="text/javascript" src="../../static/escaladoPaginaAdmin.js" defer
+            th:src="@{/escaladoPaginaAdmin.js}"></script>
 </head>
 <body>
 <!--Barra de navegación-->
@@ -25,10 +26,19 @@
         <nav class="navbar navbar-dark bg-dark col-12 col-md-2">
             <div class="container-fluid collapse navbar navbar-collapse h-50" id="nav">
                 <ul class="navbar-nav mx-auto d-flex flex-column justify-content-evenly flex-grow-1 h-100">
-                    <li class="nav-item border border-light m-auto w-100 text-center py-md-2"><a class="nav-link" href="#">Noticias</a></li>
-                    <li class="nav-item border border-light m-auto w-100  text-center py-md-2"><a class="nav-link" href="paginaAdminAniadirProducto.html" th:href="@{/admin/productos}">Añadir Productos</a></li>
-                    <li class="nav-item border border-light m-auto w-100  text-center py-md-2"><a class="nav-link" href="#">Editar Producto</a></li>
-                    <li class="nav-item border border-light m-auto w-100  text-center py-md-2"><a class="nav-link" href="#">Cosa 4</a></li>
+                    <li class="nav-item border border-light m-auto w-100 text-center py-md-2">
+                        <a class="nav-link" href="#">Noticias</a>
+                    </li>
+                    <li class="nav-item border border-light m-auto w-100  text-center py-md-2">
+                        <a class="nav-link" href="paginaAdminAniadirProducto.html" th:href="@{/admin/productos}">Añadir
+                            Productos</a>
+                    </li>
+                    <li class="nav-item border border-light m-auto w-100  text-center py-md-2">
+                        <a class="nav-link" href="#">Editar Producto</a>
+                    </li>
+                    <li class="nav-item border border-light m-auto w-100  text-center py-md-2">
+                        <a class="nav-link" href="#">Cosa 4</a>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -47,13 +57,12 @@
 
             <div class="tab-content">
                 <div class="tab-pane active" id="nuevoProducto">
-                    <form action="#">
+                    <form action="#" method="post" th:action="@{/admin/nuevoProducto/submit}" th:object="${producto}">
                         <div class="row">
                             <div class="col-md-6 mb-5">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control col-md-4 bg-"
-                                           placeholder="Nombre del producto"
-                                           id="nombre" name="nombre" required>
+                                    <input type="text" class="form-control col-md-4 bg-" th:field="*{nombre}"
+                                           placeholder="Nombre del producto" id="nombre" name="nombre" required>
                                     <label for="nombre" class="form-label ">Nombre del Producto</label>
                                 </div>
                             </div>
@@ -61,7 +70,7 @@
                             <div class="col-md-6 mb-5">
                                 <div class="form-floating">
                                     <input type="url" class="form-control col-md-4" placeholder="Imagen del producto"
-                                           id="imagen" name="imagen">
+                                           id="imagen" name="imagen" th:field="*{imagen}">
                                     <label for="imagen" class="form-label ">Imagen del Producto</label>
                                 </div>
                             </div>
@@ -259,16 +268,16 @@
 
                             <div class="col-md-6 mb-5">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control col-md-4 bg-" placeholder="Pais"
-                                           id="pais" name="pais">
+                                    <input type="text" class="form-control col-md-4 bg-" placeholder="Pais" id="pais"
+                                           name="pais">
                                     <label for="pais" class="form-label ">Pais</label>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <button type="submit" class="btn btn-primary mx-auto col-3 col-md-4 col-lg-3 col-xxl-2">
-                                Añadir
-                                Producto
+                            <button type="submit" class="btn btn-primary mx-auto col-3 col-md-4 col-lg-3 col-xxl-2"
+                                    name="enviar" value="enviar">
+                                Añadir Producto
                             </button>
                         </div>
                     </form>
@@ -291,7 +300,8 @@
                              th:each="producto : ${listaProductos}">
                             <div class="col-2" th:text="${producto.nombre}"></div>
                             <div class="col-2" style="height: 50px">
-                                <img alt="" th:alt="${producto.nombre}" class="col-2" style="max-height: 100%; width: 70px; display: block; object-fit: cover;"
+                                <img alt="" th:alt="${producto.nombre}" class="col-2"
+                                     style="max-height: 100%; width: 70px; display: block; object-fit: cover;"
                                      th:src="${producto.imagen}" src="">
                             </div>
                             <div class="col-2" th:text="${producto.marca}"></div>
