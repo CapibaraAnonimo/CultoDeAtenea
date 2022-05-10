@@ -38,13 +38,11 @@ public class ServicioBaseImpl<T, ID, R extends JpaRepository<T, ID>> implements 
 
 	@Override
 	public void delete(T a) {
-		// TODO Auto-generated method stub
 		repositorio.delete(a);
 	}
 
 	@Override
 	public void deleteById(ID id) {
-		// TODO Auto-generated method stub
 		repositorio.deleteById(id);
 	}
 
