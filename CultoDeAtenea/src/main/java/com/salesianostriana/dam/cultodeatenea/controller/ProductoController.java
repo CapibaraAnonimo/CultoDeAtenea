@@ -10,11 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.salesianostriana.dam.cultodeatenea.model.Producto;
 import com.salesianostriana.dam.cultodeatenea.service.ProductoService;
 
-import java.util.List;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.ArrayList;
-
 @Controller
 public class ProductoController {
 	
@@ -31,7 +26,8 @@ public class ProductoController {
 	@PostMapping("/admin/nuevoProducto/submit")
 	public String enviarFormularioNuevoProducto(@ModelAttribute("producto") Producto producto) {
 		System.out.println(producto);
-		return "admin/paginaAdminAniadirProducto";
+		productoService.save(producto);
+		return "redirect:/admin/nuevoProducto";
 	}
 
 }

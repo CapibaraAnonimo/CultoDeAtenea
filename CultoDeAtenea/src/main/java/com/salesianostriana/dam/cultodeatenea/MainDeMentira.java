@@ -56,6 +56,9 @@ public class MainDeMentira {
 				.build()
 				);
 		
+		for(Producto p : productos) {
+			System.out.println(p);
+		}
 		productoService.saveAll(productos);
 		
 	}
