@@ -17,7 +17,7 @@ public class ProductoController {
 	ProductoService productoService;
 
 	@GetMapping("/admin/nuevoProducto")
-	public String controladorProducto(Model model) {
+	public String nuevoProducto(Model model) {
 		model.addAttribute("listaProductos", productoService.findAll());
 		model.addAttribute("producto", new Producto());
 		return "admin/paginaAdminAniadirProducto";
@@ -29,5 +29,8 @@ public class ProductoController {
 		productoService.save(producto);
 		return "redirect:/admin/nuevoProducto";
 	}
+	
+	@GetMapping("/admin/editarProducto")
+	public String 
 
 }
