@@ -28,8 +28,8 @@ public class LineaVenta {
 	@ManyToOne
 	private Venta venta;
 	
-	public void addToVenta(Venta curso) {
-		this.venta = curso;
+	public void addToVenta(Venta venta) {
+		this.venta = venta;
 		venta.getProductos().add(this);
 	}
 	
