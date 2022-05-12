@@ -44,7 +44,7 @@ public class ProductoController {
 				.imagen(new URL("https://s3.amazonaws.com/koa-media-library/wp-media-folder-kult-of-athena/wp-content/uploads/2021/11/DSC3686.jpg"))
 				.fabricante("Albion")
 				.categoria("Espada")
-				.precio(1000)
+				.precio(1000.0)
 				.build()
 				,
 				Producto
@@ -53,7 +53,7 @@ public class ProductoController {
 				.imagen(new URL("https://s3.amazonaws.com/koa-media-library/wp-media-folder-kult-of-athena//www/wp-content/uploads/2020/11/DT5161_1_L.jpg"))
 				.fabricante("Albion")
 				.categoria("Espada")
-				.precio(1250)
+				.precio(1250.0)
 				.build()
 				,
 				Producto
@@ -62,7 +62,7 @@ public class ProductoController {
 				.imagen(new URL("https://s3.amazonaws.com/koa-media-library/wp-media-folder-kult-of-athena//www/wp-content/uploads/2020/11/AH3508_2_L.jpg"))
 				.fabricante("Albion")
 				.categoria("Arma de Asta")
-				.precio(800)
+				.precio(800.0)
 				.build()
 				);
 		

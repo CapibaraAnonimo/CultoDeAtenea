@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import org.springframework.lang.Nullable;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -26,19 +28,19 @@ public class Producto {
 	private URL imagen;
 	private String marca;
 	private String categoria;
-	private double precio;
+	private Double precio;
 	private String clasificacion;
 	private String descripcion;
-	// Campos Opcionales
-	private double longitudTotal; // cm
-	private double longitudHoja; // cm
+	// Campos Opcionales
+	private Double longitudTotal; // cm
+	private Double longitudHoja; // cm
 	private String filo; // Tipo de filo: afilado, sin afilar
-	private double peso; // kg
-	private double grosor; // mm
-	private double anchura; // mm
+	private Double peso; // kg
+	private Double grosor; // mm
+	private Double anchura; // mm
 	private String pomo; // Tipo de pomo
-	private double pdb; // Punto de balance a partir de la guarda, cm
-	private double longitudMango; // cm
+	private Double pdb; // Punto de balance a partir de la guarda, cm
+	private Double longitudMango; // cm
 	private String acero; // tipo de acero
 	private String dimensiones; // dimensiones especificas
 	private String fabricante;
@@ -48,7 +50,7 @@ public class Producto {
 		this.nombre = nombre;
 	}
 
-	public Producto(String nombre, URL imagen, String marca, String categoria, int precio) {
+	public Producto(String nombre, URL imagen, String marca, String categoria, Double precio) {
 		this.nombre = nombre;
 		this.imagen = imagen;
 		this.marca = marca;
