@@ -1,0 +1,1 @@
+INSERT INTO PRODUCTO (nombre, ...) VALUES (NEXTVAL('hibernate_sequence'),'Espada')
