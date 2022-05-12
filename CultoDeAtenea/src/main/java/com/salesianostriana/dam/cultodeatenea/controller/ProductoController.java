@@ -2,7 +2,6 @@ package com.salesianostriana.dam.cultodeatenea.controller;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
