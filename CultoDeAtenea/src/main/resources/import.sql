@@ -1,1 +1,1 @@
-INSERT INTO PRODUCTO (nombre, ...) VALUES (NEXTVAL('hibernate_sequence'),'Espada')
+INSERT INTO PRODUCTO (id, nombre, imagen, marca, categoria, precio, clasificacion, descripcion) VALUES (NEXTVAL('hibernate_sequence'),'Espada', 'https://s3.amazonaws.com/koa-media-library/wp-media-folder-kult-of-athena/wp-content/uploads/2021/11/DSC3686.jpg', 'Albion', 'Espada', 1000, 'BattleReady', 'Espada to guapa');
