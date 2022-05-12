@@ -1,3 +1,73 @@
-<?xml version="1.0" encoding="ASCII"?>
-<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_-v8XQNIkEeyNd7ukQ3fVUA" elementId="org.eclipse.e4.legacy.ide.application" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_-v8XQdIkEeyNd7ukQ3fVUA" bindingContexts="_-v9Br9IkEeyNd7ukQ3fVUA">
-  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.m2e.editor.MavenPomEditor&quot; name=&quot;pom.xml&quot; tooltip=&quot;CultoDeAtenea/pom.xml&quot;>&#xD;&#xA;&lt;persistable path=&quot;/CultoDeAtenea/pom.xml&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;SecurityConfig.java&quot; tooltip=&quot;CultoDeAtenea/src/main/java/com/salesianostriana/dam/cultodeatenea/security/SecurityConfig.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/CultoDeAtenea/src/main/java/com/salesianostriana/dam/cultodeatenea/security/SecurityConfig.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;SpringBootPropertyEditor&quot; name=&quot;application.properties&quot; tooltip=&quot;CultoDeAtenea/src/main/resources/application.properties&quot;>&#xD;&#xA;&lt;persistable path=&quot;/CultoDeAtenea/src/main/resources/application.properties&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;UsuarioRepo.java&quot; tooltip=&quot;CultoDeAtenea/src/main/java/com/salesianostriana/dam/cultodeatenea/security/UsuarioRepo.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/CultoDeAtenea/src/main/java/com/salesianostriana/dam/cultodeatenea/security/UsuarioRepo.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.Fil
+package com.salesianostriana.dam.cultodeatenea.controller;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.salesianostriana.dam.cultodeatenea.model.Producto;
+import com.salesianostriana.dam.cultodeatenea.service.ProductoService;
+
+@Controller
+public class ProductoController {
+	
+	@Autowired
+	ProductoService productoService;
+
+	@GetMapping("/admin/nuevoProducto")
+	public String nuevoProducto(Model model) {
+		model.addAttribute("listaProductos", productoService.findAll());
+		model.addAttribute("producto", new Producto());
+		return "admin/paginaAdminAniadirProducto";
+	}
+
+	@PostMapping("/admin/nuevoProducto/submit")
+	public String enviarFormularioNuevoProducto(@ModelAttribute("producto") Producto producto) {
+		System.out.println(producto);
+		productoService.save(producto);
+		return "redirect:/admin/nuevoProducto";
+	}
+	
+	@GetMapping("/admin/editarProducto")
+	public String editarProducto(Model model) throws MalformedURLException {
+		List<Producto> lista = List.of(
+				Producto
+				.builder()
+				.nombre("Espada")
+				.imagen(new URL("https://s3.amazonaws.com/koa-media-library/wp-media-folder-kult-of-athena/wp-content/uploads/2021/11/DSC3686.jpg"))
+				.fabricante("Albion")
+				.categoria("Espada")
+				.precio(1000.0)
+				.build()
+				,
+				Producto
+				.builder()
+				.nombre("Espadón")
+				.imagen(new URL("https://s3.amazonaws.com/koa-media-library/wp-media-folder-kult-of-athena//www/wp-content/uploads/2020/11/DT5161_1_L.jpg"))
+				.fabricante("Albion")
+				.categoria("Espada")
+				.precio(1250.0)
+				.build()
+				,
+				Producto
+				.builder()
+				.nombre("Bardiche")
+				.imagen(new URL("https://s3.amazonaws.com/koa-media-library/wp-media-folder-kult-of-athena//www/wp-content/uploads/2020/11/AH3508_2_L.jpg"))
+				.fabricante("Albion")
+				.categoria("Arma de Asta")
+				.precio(800.0)
+				.build()
+				);
+		
+		model.addAttribute("listaProductos", productoService.findAll());
+		model.addAttribute("listaProductos", lista);
+		return "admin/paginaAdminEditarProducto";
+	}
+
+}

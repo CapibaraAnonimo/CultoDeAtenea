@@ -1,1 +1,66 @@
-07.464847,"host":"uKLgPUyiXz4KTrqGfPB/I0bavQHU+fNyoU+tyley2bU=","mode":"force-https","sts_include_subdomains":true,"sts_observed":1651343507.46485},{"expiry":1664262119.476712,"host":"uKOo81trppxWDKxU7r5V6YAMy/Pk0DijWJtSMN5q8oI=","mode":"force-https","sts_include_subdomains":false,"sts_observed":1648494119.476714},{"expiry":1666890431.774852,"host":"ujipNbqyfVB9wTnhq42JepyrVPe6a41IUp4rBUYaUuU=","mode":"force-https","sts_include_subdomains":false,"sts_observed":1651338431.774855},{"expiry":1679948971.20719,"host":"ukfZRJGkzAnGKKKQ+S6T0W9k1hwBJpIDFE2rY7TjmZM=","mode":"force-https","sts_include_subdomains":true,"sts_observed":1648412971.207192},{"expiry":1683302157.10672,"host":"upP2UdXnn/Z+CnkYJQxkR7PYIV6glTs16Xz0XA+ybZ0=","mode":"force-https","sts_include_subdomains":false,"sts_observed":1651766157.106722},{"expiry":1682519471.278514,"host":"u2WJkReYsXLCOclN+AC8GwtBaU7RFzPZKjZGmxFdB74=","mode":"force-https","sts_include_subdomains":true,"sts_observed":1650983471.278517},{"expiry":1679327155.587679,"host":"u3dO+41dc9JcfkDj0Z+siTqeiIFa4im0lfG9uNxCqeI=","mode":"force-https","sts_include_subdomains":true,"sts_observed":1647791155.587682},{"expiry":1679680518.3145,"host":"vEqUUESobSt+8+W51vK1F5PyMRc2zs4HIwp+lMev/Do=","mode":"force-https","sts_include_subdomains":false,"sts_observed":1648144518.314671},{"expiry":1681657892.444088,"host":"vKjVISHuo4hvDoaHXrXXcKhtK0N7UIegQ3pOKawBdao=","mode":"force-https","sts_include_subdomains":true,"sts_observed":1650121892.444091},{"expiry":1679340802.737447,"host":"vZbE6Xu4ousnTkHMwnGx6/MPhx7xFQF304pjzg3PgGw=","mode":"force-https","sts_include_subdomains":true,"sts_observed":1647804802.73745},{"expiry":1682440670.639227,"host":"vdpoY5mhqgDAd6IoeY0xp+98J8sJ7O2bPkxkhw9sO7Q=","mode":"force-https","sts_include_subdomains":false,"sts_observed":1650904670.63923},{"expiry":1682715995.423336,"host":"vifNOaTUh1l0znOLY0vXjRvf72JiHdZh2kkpyU9UlMM=","mode":"force-https","sts_include_subdomains":true,"sts_observed":1651179995.423339},{"expiry":1683478226.682676,"host":"vll2wDh64Cc7LXI3X7y9li2ZJ2FD00C79/7s4FqM2I8=","mode":"force-https","sts_include_subdomains":true,"sts_observed":1651942226.682679},{"expiry":1683286075.022998,"host":"vly0lYKeM8CNslW7kyu7kXS87HWSotpOjaYJ/ApYYHs=","mode":"force-https","sts_include_subdomains":true,"sts_observed":1651750075.023001},{"expiry":1681488949.235921,"host":"v0tQp1foODM6TI7ZuYuFU+5y/+s2jNuEtNomzKY5OWA=","mode":"force-https","sts_include_subdomains":true,"sts_observed":1649952949.235923},{"expiry":1679948970.779203,"host":"v+o7DuErrg+IaDSe
+package com.salesianostriana.dam.cultodeatenea.security;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Autowired
+    private UsuarioRepo usuarios;
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailsService());
+    }
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+                .csrf().disable()
+                .authorizeRequests()
+                .antMatchers("/private/**").hasAnyRole("USER", "ADMIN")
+//                .antMatchers("/admin/**").hasRole("ADMIN")
+                .anyRequest().permitAll()
+                .and().exceptionHandling().accessDeniedPage("/error")
+                .and().formLogin().loginPage("/").loginProcessingUrl("/login").failureUrl("/login-error").permitAll()
+                .and().logout().logoutUrl("/logout").logoutSuccessUrl("/").permitAll();
+
+        http.csrf().disable();
+        http.headers().frameOptions().disable();
+
+    }
+
+    @Bean
+    @Override
+    public UserDetailsService userDetailsService() {
+
+        InMemoryUserDetailsManager userDetailsManager = new InMemoryUserDetailsManager();
+
+        usuarios.getUsuarios()
+                .stream()
+                .map(u -> {
+                    return User
+                            .withUsername(u.getUsername())
+                            .password("{noop}"+ u.getPassword())
+                            .roles(u.getRole())
+                            .build();
+
+                })
+                .forEach(userDetailsManager::createUser);
+
+
+        return userDetailsManager;
+
+
+    }
+}
