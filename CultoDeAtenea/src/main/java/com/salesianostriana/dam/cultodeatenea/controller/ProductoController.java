@@ -52,5 +52,11 @@ public class ProductoController {
 			return "redirect:/admin/noticias/";
 		}
 	}
+	
+	@PostMapping("/admin/editarProducto/submit")
+	public String editarProductoSubmit(@ModelAttribute("producto") Producto producto) {
+		productoService.edit(producto);
+		return "redirect:/admin/editarProducto/";
+	}
 
 }
