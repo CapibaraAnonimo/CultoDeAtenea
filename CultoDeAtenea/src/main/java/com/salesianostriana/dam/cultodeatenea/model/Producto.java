@@ -42,7 +42,7 @@ public class Producto {
 	private String acero; // tipo de acero
 	private String dimensiones; // dimensiones especificas
 	private String fabricante;
-	private IsoCountryCode pais;
+	private String pais;
 
 	public Producto(String nombre) {
 		this.nombre = nombre;
