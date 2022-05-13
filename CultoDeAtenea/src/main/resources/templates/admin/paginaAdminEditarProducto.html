@@ -39,7 +39,7 @@
 
                 <div class="border border-2 border-secondary bg-light row justify-content-around mb-1"
                      th:each="producto : ${listaProductos}">
-                    <a class="d-block" href="#" th:href="@{/admin/editar/{id}(id=${producto.id})}">
+                    <a class="d-block" href="#" th:href="@{/admin/editarProducto/{id}(id=${producto.id})}">
                         <div class="col-2" th:text="${producto.nombre}"></div>
                         <div class="col-2" style="height: 50px">
                             <img alt="" th:alt="${producto.nombre}" class="col-2"
