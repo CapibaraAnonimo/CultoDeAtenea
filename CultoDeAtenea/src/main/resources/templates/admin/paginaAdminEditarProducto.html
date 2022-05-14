@@ -31,25 +31,30 @@
                     <div class="col-2">Nombre</div>
                     <div class="col-2">Imagen</div>
                     <div class="col-2">Fabricante</div>
-                    <div class="col-2">Categoría</div>
-                    <div class="col-2 text-end">Precio</div>
+                    <!--<div class="col-2">Categoría</div>-->
+                    <div class="col-2">Precio</div>
+                    <div class="col-2">Acción</div>
                 </div>
 
                 <div class="border-bottom border-info bg-light border-2 my-2 p-0"></div>
 
                 <div class="border border-2 border-secondary bg-light row justify-content-around mb-1"
                      th:each="producto : ${listaProductos}">
-                    <a class="d-block" href="#" th:href="@{/admin/editarProducto/{id}(id=${producto.id})}">
-                        <div class="col-2" th:text="${producto.nombre}"></div>
-                        <div class="col-2" style="height: 50px">
-                            <img alt="" th:alt="${producto.nombre}" class="col-2"
-                                 style="max-height: 100%; width: 70px; display: block; object-fit: cover;"
-                                 th:src="${producto.imagen}" src="">
-                        </div>
-                        <div class="col-2" th:text="${producto.marca}"></div>
-                        <div class="col-2" th:text="${producto.categoria}"></div>
-                        <div class="col-2 text-end" th:text="${producto.precio}"></div>
-                    </a>
+                    <div class="col-2" th:text="${producto.nombre}"></div>
+                    <div class="col-2" style="height: 50px">
+                        <img alt="" th:alt="${producto.nombre}" class="col-2"
+                             style="max-height: 100%; width: 70px; display: block; object-fit: cover;"
+                             th:src="${producto.imagen}" src="">
+                    </div>
+                    <div class="col-2" th:text="${producto.marca}"></div>
+                    <!--<div class="col-2" th:text="${producto.categoria}"></div>-->
+                    <div class="col-2" th:text="${producto.precio}"></div>
+                    <div class="d-grid gap-2 col-2">
+                        <a class="btn btn-primary btn-sm" type="button"
+                           th:href="@{/admin/editarProducto/{id}(id=${producto.id})}">Editar</a>
+                        <a class="btn btn-danger btn-sm" type="button"
+                           th:href="@{/admin/editarProducto/eliminar/{id}(id=${producto.id})}">Eliminar</a>
+                    </div>
                 </div>
             </div>
         </main>

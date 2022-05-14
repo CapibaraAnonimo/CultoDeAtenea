@@ -58,5 +58,11 @@ public class ProductoController {
 		productoService.edit(producto);
 		return "redirect:/admin/editarProducto/";
 	}
+	
+	@GetMapping("/admin/editarProducto/eliminar/{id}")
+	public String eliminarProducto(@PathVariable("id") long id) {
+		productoService.deleteById(id);
+		return "redirect:/admin/editarProducto";
+	}
 
 }
