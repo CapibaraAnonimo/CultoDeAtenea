@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @Configuration
 @EnableWebSecurity
@@ -32,7 +33,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().permitAll()
                 .and().exceptionHandling().accessDeniedPage("/error")
-                .and().formLogin().loginPage("/noticias").loginProcessingUrl("/login").failureUrl("/login-error").permitAll()
+                .and().formLogin().loginPage("/noticias").loginProcessingUrl("/login")
+                .defaultSuccessUrl("/noticias").failureUrl("/login-error").permitAll()
                 .and().logout().logoutUrl("/logout").logoutSuccessUrl("/").permitAll();
 
         http.csrf().disable();
