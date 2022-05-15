@@ -29,10 +29,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/private/**").hasAnyRole("USER", "ADMIN")
-//                .antMatchers("/admin/**").hasRole("ADMIN")
+                .antMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().permitAll()
                 .and().exceptionHandling().accessDeniedPage("/error")
-                .and().formLogin().loginPage("/").loginProcessingUrl("/login").failureUrl("/login-error").permitAll()
+                .and().formLogin().loginPage("/noticias").loginProcessingUrl("/login").failureUrl("/login-error").permitAll()
                 .and().logout().logoutUrl("/logout").logoutSuccessUrl("/").permitAll();
 
         http.csrf().disable();
