@@ -16,7 +16,7 @@
     <script type="text/javascript" src="../../static/principal.js" defer th:src="@{/principal.js}"></script>
     <script type="text/javascript" src="../../static/escaladoPaginaAdmin.js" defer
             th:src="@{/escaladoPaginaAdmin.js}"></script>
-    <script type="text/javascript" src="../../static/popoverEliminar.js" defer th:src="@{/popoverEliminar.js}"></script>
+
 </head>
 <body>
 <!--Barra de navegación-->
@@ -28,10 +28,10 @@
         <nav th:replace="~{admin/fragmentos/navLateral::navLateral}"></nav>
 
         <main class="mt-5 mt-md-0 col-12 col-md-9 bg-dark mx-auto overflow-auto text-dark p-5">
-            <form class="d-flex" action="#" method="get" th:action="@{/admin/editarProducto/buscar}"
-                  th:value="${param.buscar}">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+            <form method="GET" th:action="@{/admin/editarProducto/buscar}">
+                <input type="text" placeholder="Nombre del producto"
+                       name="buscar" id="buscar" th:value="${param.buscar}" />
+                <input type="submit" value="Enviar" />
             </form>
             <div class="">
                 <div class="border border-2 border-secondary bg-light row justify-content-around rounded-top py-2">
@@ -75,6 +75,6 @@
         </main>
     </div>
 </div>
-
+<script type="text/javascript" src="../../static/popoverEliminar.js" defer th:src="@{/popoverEliminar.js}"></script>
 </body>
 </html>

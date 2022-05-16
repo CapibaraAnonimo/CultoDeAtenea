@@ -1,7 +1,6 @@
 package com.salesianostriana.dam.cultodeatenea.model;
 
 import java.net.URL;
-import java.util.Locale.IsoCountryCode;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

@@ -44,6 +44,15 @@ public class UsuarioRepo {
 				.apellidos("Naranjo González")
 				.fechaNacimiento(LocalDate.of(1976, 1, 1))
 				.build()
+				,
+				Usuario.builder()
+				.username("1")
+				.password("1")
+				.role("ADMIN")
+				.nombre("Luis Miguel")
+				.apellidos("López Magaña")
+				.fechaNacimiento(LocalDate.of(1982, 1, 1))
+				.build()
 				);			
 	}
 }

@@ -1,7 +1,7 @@
-const popperButton = document.querySelector("#eliminar");
-const popperPopup = document.querySelector("#popper-popup");
+const popperButton = document.querySelectorAll("#eliminar");
+const popperPopup = document.querySelectorAll("#popper-popup");
 const popperSection = document.querySelector("#popper-section");
-const popperArrow = document.querySelector("#popper-arrow");
+const popperArrow = document.querySelectorAll("#popper-arrow");
 
 let popperInstance = null;
 
@@ -36,29 +36,31 @@ function destroyInstance() {
 }
 
 //show and create popper
-function showPopper() {
+function showPopper(event) {
     popperPopup.setAttribute("show-popper", "");
     popperArrow.setAttribute("data-popper-arrow", "");
     createInstance();
 }
 
 //hide and destroy popper instance
-function hidePopper() {
+function hidePopper(event) {
     popperPopup.removeAttribute("show-popper");
     popperArrow.removeAttribute("data-popper-arrow");
     destroyInstance();
 }
 
 //toggle show-popper attribute on popper to hide or show it with CSS
-function togglePopper() {
-    if (popperPopup.hasAttribute("show-popper")) {
-        hidePopper();
+function togglePopper(event) {
+    if (event.target.hasAttribute("show-popper")) {
+        hidePopper(event);
     } else {
-        showPopper();
+        showPopper(event);
     }
 }
 //execute togglePopper function when clicking the popper reference/button
-popperButton.addEventListener("click", function (e) {
-    e.preventDefault();
-    togglePopper();
-});
+for (let i = 0; i<popperButton.length; i++) {
+    popperButton[i].addEventListener("click", function (e) {
+        e.preventDefault();
+        togglePopper(e);
+    });
+}

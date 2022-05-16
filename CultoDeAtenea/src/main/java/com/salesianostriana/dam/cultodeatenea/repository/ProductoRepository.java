@@ -8,7 +8,7 @@ import com.salesianostriana.dam.cultodeatenea.model.Producto;
 
 public interface ProductoRepository extends JpaRepository<Producto, Long> {
 
-	List<Producto> findByNombreContainsIgnoreCaseOrMarcaContainsIgnoreCaseOrCategoriaContainsIgnoreCaseOrIdContainsIgnoreCase(
-			String nombre, String marca, String categoria, long id);
+	List<Producto> findByNombreContainsIgnoreCaseOrMarcaContainsIgnoreCaseOrCategoriaContainsIgnoreCase(
+			String nombre, String marca, String categoria);
 
 }

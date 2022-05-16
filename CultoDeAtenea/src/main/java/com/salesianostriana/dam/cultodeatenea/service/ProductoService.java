@@ -12,8 +12,10 @@ import com.salesianostriana.dam.cultodeatenea.service.base.ServicioBaseImpl;
 public class ProductoService extends ServicioBaseImpl<Producto, Long, ProductoRepository> {
 	
 	public List<Producto> buscarAdmin(String cadena) {
-		long id = 0;
-		return repositorio.findByNombreContainsIgnoreCaseOrMarcaContainsIgnoreCaseOrCategoriaContainsIgnoreCaseOrIdContainsIgnoreCase(cadena, cadena, cadena, id);
+	    
+		return this.repositorio.findByNombreContainsIgnoreCaseOrMarcaContainsIgnoreCaseOrCategoriaContainsIgnoreCase(cadena, cadena, cadena);
 	}
+	
+//	public List<Producto> buscarAdmin2(String cadena);
 
 }
