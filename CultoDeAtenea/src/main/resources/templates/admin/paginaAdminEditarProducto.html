@@ -28,6 +28,11 @@
         <nav th:replace="~{admin/fragmentos/navLateral::navLateral}"></nav>
 
         <main class="mt-5 mt-md-0 col-12 col-md-9 bg-dark mx-auto overflow-auto text-dark p-5">
+            <form class="d-flex" action="#" method="get" th:action="@{/admin/editarProducto/buscar}"
+                  th:value="${param.buscar}">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
             <div class="">
                 <div class="border border-2 border-secondary bg-light row justify-content-around rounded-top py-2">
                     <div class="col-2">Nombre</div>

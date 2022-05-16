@@ -10,9 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.salesianostriana.dam.cultodeatenea.model.Producto;
-import com.salesianostriana.dam.cultodeatenea.service.LineaVentaService;
 import com.salesianostriana.dam.cultodeatenea.service.ProductoService;
-import com.salesianostriana.dam.cultodeatenea.service.VentaService;
 
 @Component
 public class MainDeMentira {

@@ -1,6 +1,5 @@
 package com.salesianostriana.dam.cultodeatenea.controller;
 
-import java.net.MalformedURLException;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.salesianostriana.dam.cultodeatenea.model.Producto;
 import com.salesianostriana.dam.cultodeatenea.service.ProductoService;
@@ -35,8 +35,14 @@ public class ProductoController {
 	}
 	
 	@GetMapping("/admin/editarProducto")
-	public String editarProducto(Model model) throws MalformedURLException {
+	public String editarProducto(Model model) {
 		model.addAttribute("listaProductos", productoService.findAll());
+		return "admin/paginaAdminEditarProducto";
+	}
+	
+	@GetMapping("/admin/editarProducto/buscar")
+	public String editarProductoBuscar(Model model, @RequestParam String buscar) {
+		model.addAttribute("listaProductos", productoService.buscarAdmin(buscar));
 		return "admin/paginaAdminEditarProducto";
 	}
 	
