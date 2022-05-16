@@ -3,6 +3,10 @@ body > div:first-of-type {
     background-repeat: no-repeat;
 }
 
+.card{
+    width: 18rem;
+}
+
 .nav-link {
     color: #939fad;
 }

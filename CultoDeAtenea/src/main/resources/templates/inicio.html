@@ -11,12 +11,23 @@
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"></script>
 
-    <link rel='stylesheet' type='text/css' media='screen' href='../../static/principal.css' th:href="@{/principal.css}">
-    <script type="text/javascript" src="../../static/principal.js" defer th:src="@{/principal.js}"></script>
-    <script type="text/javascript" src="../../static/escaladoPaginaAdmin.js" defer
+    <link rel='stylesheet' type='text/css' media='screen' href='../static/principal.css' th:href="@{/principal.css}">
+    <script type="text/javascript" src="../static/principal.js" defer th:src="@{/principal.js}"></script>
+    <script type="text/javascript" src="../static/escaladoPaginaAdmin.js" defer
             th:src="@{/escaladoPaginaAdmin.js}"></script>
 </head>
 <body>
-error
+<div th:each="producto : ${listaProductos}">
+    <div class="card">
+        <img src="#" class="card-img-top" alt="#" th:alt="${producto.nombre}" th:src="${producto.imagen}">
+        <div class="card-body">
+            <h5 class="card-title" th:text="${producto.nombre}">Card title</h5>
+            <div class="row">
+                <div class="col-6" th:text="${producto.precio} + '€'"></div>
+                <a href="#" class="btn btn-primary col-6">Comprar</a>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

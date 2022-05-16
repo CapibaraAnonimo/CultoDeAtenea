@@ -19,6 +19,12 @@ public class ProductoController {
 	
 	@Autowired
 	ProductoService productoService;
+	
+	@GetMapping("/")
+	public String inicio(Model model) {
+		model.addAttribute("listaProductos", productoService.findAll());
+		return "inicio";
+	}
 
 	@GetMapping("/admin/nuevoProducto")
 	public String nuevoProducto(Model model) {
