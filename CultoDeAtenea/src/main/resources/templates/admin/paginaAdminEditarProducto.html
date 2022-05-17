@@ -10,7 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/@popperjs/core@2" defer></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
 
     <link rel='stylesheet' type='text/css' media='screen' href='../../static/principal.css' th:href="@{/principal.css}">
     <script type="text/javascript" src="../../static/principal.js" defer th:src="@{/principal.js}"></script>
@@ -59,15 +59,15 @@
                     <div class="d-grid gap-2 col-2">
                         <a class="btn btn-primary btn-sm" type="button"
                            th:href="@{/admin/editarProducto/{id}(id=${producto.id})}">Editar</a>
-                        <button class="btn btn-danger btn-sm" type="button" id="eliminar">Eliminar
+                        <button class="btn btn-danger btn-sm eliminar" type="button">Eliminar
                         </button>
-                        <div class="rounded rounded-1 px-2" id="popper-popup" role="tooltip">
+                        <div class="rounded rounded-1 px-2 popper-popup" role="tooltip">
                             <div class="d-flex flex-column p-2">
                                 ¿Estás seguro?
                                 <a class="btn btn-primary btn-sm" type="button"
                                    th:href="@{/admin/editarProducto/eliminar/{id}(id=${producto.id})}">Acaba con el</a>
                             </div>
-                            <div id="popper-arrow" data-popper-arrow></div>
+                            <div class="popper-arrow" data-popper-arrow></div>
                         </div>
                     </div>
                 </div>
