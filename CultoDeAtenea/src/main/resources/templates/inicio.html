@@ -13,18 +13,18 @@
 
     <link rel='stylesheet' type='text/css' media='screen' href='../static/principal.css' th:href="@{/principal.css}">
     <script type="text/javascript" src="../static/principal.js" defer th:src="@{/principal.js}"></script>
-    <script type="text/javascript" src="../static/escaladoPaginaAdmin.js" defer
-            th:src="@{/escaladoPaginaAdmin.js}"></script>
 </head>
 <body>
 <header class="publico">
-    <div class="row d-flex justify-content-between">
-        <a class="navbar-brand text-dark w-auto" href="#">Culto de atenea</a>
-        <form class="col-3 d-flex flex-nowrap" method="GET" th:action="@{/admin/editarProducto/buscar}">
-            <input class="form-control" type="text" placeholder="Nombre del producto"
-                   name="buscar" id="buscar" th:value="${param.buscar}"/>
-            <input class="" type="submit" value="Enviar"/>
-        </form>
+    <div class="container-fluid">
+        <div class="row d-flex justify-content-between">
+            <a class="navbar-brand text-dark w-auto" href="#">Culto de atenea</a>
+            <form class="col-3 d-flex flex-nowrap" method="GET" th:action="@{/admin/editarProducto/buscar}">
+                <input class="form-control" type="text" placeholder="Nombre del producto"
+                       name="buscar" id="buscar" th:value="${param.buscar}"/>
+                <input class="" type="submit" value="Enviar"/>
+            </form>
+        </div>
     </div>
     <nav class="sticky-top navbar navbar-expand-md navbar-dark" th:fragment="nav">
         <div class="container-fluid">
@@ -108,7 +108,7 @@
     </nav>
 </header>
 
-<a class="imagenCarrito rounded-circle">
+<a class="imagenCarrito rounded-circle" th:href="@{/carrito}">
     <div class="m-auto">
         <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-minecart-loaded" viewBox="0 0 16 16">
             <path d="M4 15a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm0 1a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm8-1a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm0 1a2 2 0 1 0 0-4 2 2 0 0 0 0 4zM.115 3.18A.5.5 0 0 1 .5 3h15a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 14 12H2a.5.5 0 0 1-.491-.408l-1.5-8a.5.5 0 0 1 .106-.411zm.987.82 1.313 7h11.17l1.313-7H1.102z"/>

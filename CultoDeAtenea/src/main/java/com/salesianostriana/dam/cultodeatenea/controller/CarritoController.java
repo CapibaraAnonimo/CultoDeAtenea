@@ -23,8 +23,9 @@ public class CarritoController {
 
 	@GetMapping("/carrito")
 	public String mostrarCarrito(Model model) {
-		if (model.addAttribute("products", carritoService.getProductsInCart()) == null)
+		if (model.addAttribute("productos", carritoService.getProductsInCart()) == null)
 			return "redirect:/";
+		model.addAttribute("productos", carritoService.getProductsInCart());
 		return "carrito";
 	}
 	
@@ -36,5 +37,25 @@ public class CarritoController {
     	}
     	return "redirect:/carrito";
     }
+	
+	@GetMapping("/carrito/eliminar/{id}")
+	public String eliminarProductoCarrito(@PathVariable("id") long id) {
+		System.out.println(id);
+		Optional<Producto> p = productoService.findById(id);
+		
+		if(p.isPresent())
+			carritoService.removeProducto(p.get());
+		return "redirect:/carrito";
+	}
+	
+	@GetMapping("/carrito/eliminarAll/{id}")
+	public String eliminarTodosProductoCarrito(@PathVariable("id") long id) {
+		System.out.println(id);
+		Optional<Producto> p = productoService.findById(id);
+		
+		if(p.isPresent())
+			carritoService.removeAllProducto(p.get());
+		return "redirect:/carrito";
+	}
 
 }

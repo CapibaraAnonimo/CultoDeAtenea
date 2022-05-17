@@ -43,6 +43,10 @@ public class CarritoService {
 			}
 		}
 	}
+	
+	public void removeAllProducto(Producto p) {
+		products.remove(p);
+	}
 
 	public Map<Producto, Integer> getProductsInCart() {
 		return Collections.unmodifiableMap(products);
