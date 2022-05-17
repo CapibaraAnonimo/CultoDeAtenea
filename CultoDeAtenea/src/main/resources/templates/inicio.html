@@ -17,8 +17,11 @@
             th:src="@{/escaladoPaginaAdmin.js}"></script>
 </head>
 <body>
+<header>
+
+</header>
 <div th:each="producto : ${listaProductos}">
-    <div class="card">
+    <div class="card inicio">
         <img src="#" class="card-img-top" alt="#" th:alt="${producto.nombre}" th:src="${producto.imagen}">
         <div class="card-body">
             <h5 class="card-title" th:text="${producto.nombre}">Card title</h5>
