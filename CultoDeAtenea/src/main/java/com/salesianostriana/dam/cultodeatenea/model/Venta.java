@@ -32,15 +32,14 @@ public class Venta {
 	@OneToMany(mappedBy = "venta", fetch = FetchType.EAGER)
 	private List<LineaVenta> productos = new ArrayList<>();
 	private double total;
-	
-	
+
 	public void calcularTotal() {
-		double t = 0;
-		if(productos.size() > 0) {
-			for(LineaVenta l : productos) {
-				t += l.getSubtotal();
-			}
-		}
+		total = 0;
+		Double t = productos
+				.stream()
+				.mapToDouble(LineaVenta::getSubtotal)
+				.sum();
+		System.out.println(t);
 		total = t;
 	}
 

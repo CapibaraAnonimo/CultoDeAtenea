@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -62,6 +61,10 @@ public class CarritoService {
 	public Map<Producto, Integer> getProductsInCart() {
 		return Collections.unmodifiableMap(productos);
 	}
+	
+	public void limpiarCarrito() {
+		productos = new HashMap<>();
+	}
 
 	public void checkout() {
 		List<LineaVenta> lineas = new ArrayList<LineaVenta>();
@@ -83,41 +86,20 @@ public class CarritoService {
 							.cantidad(entrada.getValue())
 							.build();
 					l.addToVenta(v);
-					lineas.add(l);
 				}
 			}
 		}
 		ventaRepository.save(v);
 		
-		lineas.stream()
-		.forEach(System.out::println);
-		lineaVentaRepository.saveAll(lineas);
+		v.getProductos().stream()
+		.forEach(LineaVenta::calcularSubTotal);
+		
+		v.calcularTotal();
+		
+		lineaVentaRepository.saveAll(v.getProductos());
 		
 		
-//		v.setProductos(lineas);
-		
-		
-//		if (lineas.size() > 0) {
-//			lineas
-//			.stream()
-//			.forEach(LineaVenta::calcularSubTotal);
-//			
-//			
-//			
-//			v.calcularTotal();
-//			
-//			for (LineaVenta l : v.getProductos()) {
-//				l.addToVenta(v);
-//			}
-//			
-//			ventaRepository.save(v);
-//			
-//			List<LineaVenta> l = v.getProductos();
-//			
-////			l.stream()
-////			.forEach(i -> i.addToVenta(v));
-//		}
-		
+		limpiarCarrito();
 		
 	}
 
