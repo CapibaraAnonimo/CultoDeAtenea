@@ -7,8 +7,8 @@ let posicion = 0;
 let popperInstance = new Array(popperButton.length);
 
 //create popper instance
-function createInstance() {
-    popperInstance[posicion] = Popper.createPopper(popperButton, popperPopup, {
+function createInstance(element) {
+    popperInstance[posicion] = Popper.createPopper(element, element.nextElementSibling, {
         placement: 'right', //preferred placement of popper
         modifiers: [
             {
@@ -40,19 +40,19 @@ function destroyInstance() {
 function showPopper(element) {
     element.nextElementSibling.setAttribute("show-popper", "");
     element.nextElementSibling.lastElementChild.setAttribute("data-popper-arrow", "");
-    createInstance();
+    createInstance(element);
 }
 
 //hide and destroy popper instance
 function hidePopper(element) {
     element.nextElementSibling.removeAttribute("show-popper");
-    element.lastElementChild.removeAttribute("data-popper-arrow");
+    element.nextElementSibling.lastElementChild.removeAttribute("data-popper-arrow");
     destroyInstance();
 }
 
 //toggle show-popper attribute on popper to hide or show it with CSS
 function togglePopper(element) {
-    if (element.hasAttribute("show-popper")) {
+    if (element.nextElementSibling.hasAttribute("show-popper")) {
         hidePopper(element);
     } else {
         showPopper(element);
@@ -70,7 +70,6 @@ for (let i = 0; i < popperButton.length; i++) {
                 aux = aux + 1;
             }
         }
-        alert(posicion)
         e.preventDefault();
         togglePopper(e.target);
     });
