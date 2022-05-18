@@ -64,14 +64,12 @@ public class CarritoService {
 	}
 
 	public void checkout() {
-		Venta v;
 		List<LineaVenta> lineas = new ArrayList<LineaVenta>();
-		Optional<Producto> p;
-		
-		v = Venta
+		Venta v = Venta
 				.builder()
 				.productos(lineas)
 				.build();
+		Optional<Producto> p;
 		
 		
 		for (Map.Entry<Producto, Integer> entrada : productos.entrySet()) {
@@ -85,14 +83,16 @@ public class CarritoService {
 							.cantidad(entrada.getValue())
 							.build();
 					l.addToVenta(v);
-					System.out.println(l);
-					lineaVentaRepository.save(l);
-					
+					lineas.add(l);
 				}
 			}
 		}
-		
 		ventaRepository.save(v);
+		
+		lineas.stream()
+		.forEach(System.out::println);
+		lineaVentaRepository.saveAll(lineas);
+		
 		
 //		v.setProductos(lineas);
 		
