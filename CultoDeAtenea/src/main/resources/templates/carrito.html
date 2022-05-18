@@ -43,10 +43,14 @@
         <div class="col-2 text-end" th:text="${producto.value * producto.key.precio}"></div>
 
         <a class="btn btn-primary btn-sm" type="button"
-           th:href="@{/carrito/eliminar/{id}(id=${producto.key.id})}">Acaba con el</a>
+           th:href="@{/carrito/eliminar/{id}(id=${producto.key.id})}">Acaba con uno</a>
         <a class="btn btn-primary btn-sm" type="button"
-           th:href="@{/carrito/eliminarAll/{id}(id=${producto.key.id})}">Acaba con el</a>
+           th:href="@{/carrito/eliminarAll/{id}(id=${producto.key.id})}">Acaba con todos</a>
     </div>
+    <a class="btn btn-primary btn-sm" type="button"
+       th:href="@{/}">Seguir comprando</a>
+    <a class="btn btn-primary btn-sm" type="button"
+       th:href="@{/carrito/checkout}">Checkout</a>
 </div>
 </body>
 </html>

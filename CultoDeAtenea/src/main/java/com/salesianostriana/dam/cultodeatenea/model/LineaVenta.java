@@ -33,9 +33,14 @@ public class LineaVenta {
 		venta.getProductos().add(this);
 	}
 	
-	public void removeFromVenta(Venta curso) {
+	public void removeFromVenta(Venta venta) {
 		venta.getProductos().remove(this);
 		this.venta = null;
+	}
+	
+	public void calcularSubTotal() {
+		if(producto != null && cantidad > 0)
+			subtotal = producto.getPrecio() * cantidad;
 	}
 
 }

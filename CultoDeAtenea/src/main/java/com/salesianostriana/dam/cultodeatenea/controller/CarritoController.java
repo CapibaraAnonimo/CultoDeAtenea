@@ -57,5 +57,11 @@ public class CarritoController {
 			carritoService.removeAllProducto(p.get());
 		return "redirect:/carrito";
 	}
+	
+	@GetMapping("carrito/checkout")
+	public String checkout(Model model) {
+		carritoService.checkout();
+		return "redirect:/";
+	}
 
 }
