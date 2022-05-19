@@ -19,7 +19,7 @@ public class GeneralController {
     @GetMapping("/login-error")
     public String loginError(Model model) {
 //        model.addAttribute("loginError", true);
-        return "";
+        return "redirect:/";
     }
 
 }
