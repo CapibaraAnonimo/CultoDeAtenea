@@ -3,6 +3,40 @@ body > div:first-of-type {
     background-repeat: no-repeat;
 }
 
+footer{
+    background-color: #121314;
+    background-image: url("https://s3.amazonaws.com/koa-media-library/wp-media-folder-kult-of-athena//www/wp-content/uploads/2020/11/footer.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #bfbfbf;
+    padding-top: 60px;
+    padding-bottom: 40px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+footer>div>div{
+    width: 262.500px;
+}
+
+footer ul{
+    list-style-type: inherit;
+}
+
+footer ul li{
+    border-bottom: #505152 1px solid;
+    padding-bottom: 20px;
+}
+
+footer a{
+    color: #bfbfbf;
+    text-decoration: none;
+}
+
+footer a:hover{
+    color: #be9359;
+}
+
 header.publico {
     background-image: url("https://s3.amazonaws.com/koa-media-library/wp-media-folder-kult-of-athena//www/wp-content/uploads/2020/12/kult-of-athena-hero.jpg");
     background-repeat: no-repeat;
