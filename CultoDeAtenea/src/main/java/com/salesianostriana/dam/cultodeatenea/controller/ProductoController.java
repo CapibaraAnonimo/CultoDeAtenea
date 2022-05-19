@@ -25,6 +25,12 @@ public class ProductoController {
 		model.addAttribute("listaProductos", productoService.findAll());
 		return "inicio";
 	}
+	
+	@GetMapping("/buscar")
+	public String buscar(Model model, @RequestParam String buscar) {
+		model.addAttribute("listaProductos", productoService.buscarGeneral(buscar));
+		return "inicio";
+	}
 
 	@GetMapping("/admin/nuevoProducto")
 	public String nuevoProducto(Model model) {

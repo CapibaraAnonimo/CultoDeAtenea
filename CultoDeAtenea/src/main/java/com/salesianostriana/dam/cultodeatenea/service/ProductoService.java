@@ -14,5 +14,9 @@ public class ProductoService extends ServicioBaseImpl<Producto, Long, ProductoRe
 	public List<Producto> buscarAdmin(String cadena) {
 		return this.repositorio.buscarAdmin(cadena);
 	}
+	
+	public List<Producto> buscarGeneral(String cadena) {
+		return this.repositorio.buscarGeneral(cadena);
+	}
 
 }

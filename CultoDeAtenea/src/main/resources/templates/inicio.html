@@ -19,7 +19,7 @@
     <div class="container-fluid">
         <div class="row d-flex justify-content-between">
             <a class="navbar-brand text-dark w-auto" href="#">Culto de atenea</a>
-            <form class="col-3 d-flex flex-nowrap" method="GET" th:action="@{/admin/editarProducto/buscar}">
+            <form class="col-3 d-flex flex-nowrap" method="GET" th:action="@{/buscar}">
                 <input class="form-control" type="text" placeholder="Nombre del producto"
                        name="buscar" id="buscar" th:value="${param.buscar}"/>
                 <input class="" type="submit" value="Enviar"/>

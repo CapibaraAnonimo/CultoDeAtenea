@@ -11,5 +11,8 @@ public interface ProductoRepository extends JpaRepository<Producto, Long> {
 	
 	@Query("Select p from Producto p WHERE lower(p.nombre) LIKE lower(concat('%', :cadena, '%')) OR lower(p.marca) LIKE lower(concat('%', :cadena, '%')) OR lower(p.categoria) LIKE lower(concat('%', :cadena, '%')) OR lower(p.id) LIKE lower(concat('%', :cadena, '%'))")
 	public 	List<Producto> buscarAdmin(String cadena);
+	
+	@Query("Select p from Producto p WHERE lower(p.nombre) LIKE lower(concat('%', :cadena, '%')) OR lower(p.marca) LIKE lower(concat('%', :cadena, '%')) OR lower(p.categoria) LIKE lower(concat('%', :cadena, '%'))")
+	public 	List<Producto> buscarGeneral(String cadena);
 
 }
