@@ -75,28 +75,30 @@ public class CarritoService {
 		Optional<Producto> p;
 		
 		
-		for (Map.Entry<Producto, Integer> entrada : productos.entrySet()) {
-			p = productoRepository.findById(entrada.getKey().getId());
-			
-			if (p.isPresent()) {
-				if (entrada.getValue() >= 1) {
-					LineaVenta l = LineaVenta
-							.builder()
-							.producto(p.get())
-							.cantidad(entrada.getValue())
-							.build();
-					l.addToVenta(v);
+		if (!productos.isEmpty()) {
+			for (Map.Entry<Producto, Integer> entrada : productos.entrySet()) {
+				p = productoRepository.findById(entrada.getKey().getId());
+				
+				if (p.isPresent()) {
+					if (entrada.getValue() >= 1) {
+						LineaVenta l = LineaVenta
+								.builder()
+								.producto(p.get())
+								.cantidad(entrada.getValue())
+								.build();
+						l.addToVenta(v);
+					}
 				}
 			}
+			ventaRepository.save(v);
+			
+			v.getProductos().stream()
+			.forEach(LineaVenta::calcularSubTotal);
+			
+			v.calcularTotal();
+			
+			lineaVentaRepository.saveAll(v.getProductos());
 		}
-		ventaRepository.save(v);
-		
-		v.getProductos().stream()
-		.forEach(LineaVenta::calcularSubTotal);
-		
-		v.calcularTotal();
-		
-		lineaVentaRepository.saveAll(v.getProductos());
 		
 		
 		limpiarCarrito();
