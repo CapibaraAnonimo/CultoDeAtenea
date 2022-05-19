@@ -22,8 +22,8 @@
 <!--Barra de navegación-->
 <nav th:replace="~{admin/fragmentos/nav::nav}"></nav>
 
-<div class="py-0 px-0 py-md-2 px-md-4" id="cotenido">
-    <div class="row flex-wrap">
+<div class="py-0 px-0 py-md-2 px-md-4 container-fluid" id="cotenido">
+    <div class="row flex-wrap container-fluid p-0 m-0">
         <!--Navegación del contenido principal-->
         <nav th:replace="~{admin/fragmentos/navLateral::navLateral}"></nav>
 
@@ -33,7 +33,7 @@
                        name="buscar" id="buscar" th:value="${param.buscar}" />
                 <input type="submit" value="Enviar" />
             </form>
-            <div class="">
+            <div class="container-fluid p-0">
                 <div class="border border-2 border-secondary bg-light row justify-content-around rounded-top py-2">
                     <div class="col-2">Nombre</div>
                     <div class="col-2">Imagen</div>

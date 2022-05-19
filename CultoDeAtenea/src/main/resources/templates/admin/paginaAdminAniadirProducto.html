@@ -20,7 +20,7 @@
 <!--Barra de navegación-->
 <nav th:replace="~{admin/fragmentos/nav::nav}"></nav>
 
-<div class="py-0 px-0 py-md-2 px-md-4" id="cotenido">
+<div class="py-0 px-0 py-md-2 px-md-4 container-fluid" id="cotenido">
     <div class="row flex-wrap">
         <!--Navegación del contenido principal-->
         <nav th:replace="~{admin/fragmentos/navLateral::navLateral}"></nav>
@@ -38,8 +38,8 @@
 
 
             <div class="tab-content">
-                <div class="tab-pane active" id="nuevoProducto">
-                    <form action="#" method="post" th:action="@{/admin/nuevoProducto/submit}" th:object="${producto}">
+                <div class="tab-pane active container-fluid" id="nuevoProducto">
+                    <form class="container-fluid" action="#" method="post" th:action="@{/admin/nuevoProducto/submit}" th:object="${producto}">
                         <div class="row">
                             <div class="col-md-6 mb-5">
                                 <div class="form-floating">
@@ -269,7 +269,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <button type="submit" class="btn btn-primary mx-auto col-3 col-md-4 col-lg-3 col-xxl-2"
+                            <button type="submit" class="btn btn-primary mx-auto col-6 col-md-4 col-lg-3 col-xxl-2"
                                     name="enviar" value="enviar">
                                 Añadir Producto
                             </button>
@@ -278,8 +278,8 @@
                 </div>
 
 
-                <div class="tab-pane fade" id="productoExistente">
-                    <div class="">
+                <div class="tab-pane fade container-fluid p-0" id="productoExistente">
+                    <div class="container-fluid p-0">
                         <div class="border border-2 border-secondary bg-light row justify-content-around rounded-top py-2">
                             <div class="col-2">Nombre</div>
                             <div class="col-2">Imagen</div>
