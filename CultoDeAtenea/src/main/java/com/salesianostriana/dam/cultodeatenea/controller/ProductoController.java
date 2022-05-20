@@ -89,12 +89,11 @@ public class ProductoController {
 	
 	@GetMapping("/admin/editarProducto/eliminar/{id}")
 	public String eliminarProducto(@PathVariable("id") long id) {
-		List<LineaVenta> lista = lineaVentaRepository.findAll()
-				.stream()
-				.filter(l -> l.getProducto().getId() == id)
-				.collect(Collectors.toList());
-		lista.stream()
+		lineaVentaRepository.findAll().stream()
+		.filter(l -> l.getProducto().getId() == id)
+		.collect(Collectors.toList())
 		.forEach(l -> l.setProducto(null));
+		
 		productoService.deleteById(id);
 		return "redirect:/admin/editarProducto";
 	}

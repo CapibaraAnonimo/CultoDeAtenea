@@ -10,6 +10,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.context.WebApplicationContext;
 
@@ -71,6 +72,7 @@ public class CarritoService {
 		Venta v = Venta
 				.builder()
 				.productos(lineas)
+				.usuario(SecurityContextHolder.getContext().getAuthentication().getName())
 				.build();
 		Optional<Producto> p;
 		

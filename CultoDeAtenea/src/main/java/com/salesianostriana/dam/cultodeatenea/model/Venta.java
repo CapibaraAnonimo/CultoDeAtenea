@@ -32,6 +32,7 @@ public class Venta {
 	@OneToMany(mappedBy = "venta", fetch = FetchType.EAGER)
 	private List<LineaVenta> productos = new ArrayList<>();
 	private double total;
+	private String usuario;
 
 	public void calcularTotal() {
 		total = 0;
