@@ -32,7 +32,8 @@
         <div class="card inicio h-auto m-auto mb-2" th:each="producto : ${listaProductos}">
             <img src="#" class="card-img-top" alt="#" th:alt="${producto.nombre}" th:src="${producto.imagen}">
             <div class="card-body container-fluid">
-                <h5 class="card-title" th:text="${producto.nombre}">Card title</h5>
+                <h4 class="card-title" th:text="${producto.nombre}">Nombre de Producto</h4>
+                <p th:text="${producto.descripcion}">Descripción</p>
                 <div class="row">
                     <div class="col-6" th:text="${producto.precio} + '€'"></div>
                     <a href="#" th:href="@{/productoCarrito/{id}(id=${producto.id})}"

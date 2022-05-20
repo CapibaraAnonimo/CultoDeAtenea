@@ -1,5 +1,7 @@
 package com.salesianostriana.dam.cultodeatenea.controller;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +13,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.salesianostriana.dam.cultodeatenea.model.LineaVenta;
 import com.salesianostriana.dam.cultodeatenea.model.Producto;
+import com.salesianostriana.dam.cultodeatenea.repository.LineaVentaRepository;
 import com.salesianostriana.dam.cultodeatenea.service.ProductoService;
 
 @Controller
@@ -20,9 +24,14 @@ public class ProductoController {
 	@Autowired
 	ProductoService productoService;
 	
+	@Autowired
+	LineaVentaRepository lineaVentaRepository;
+	
 	@GetMapping("/")
 	public String inicio(Model model) {
-		model.addAttribute("listaProductos", productoService.findAll());
+		List<Producto> lista = productoService.findAll();
+		Collections.shuffle(lista);
+		model.addAttribute("listaProductos", lista);
 		return "inicio";
 	}
 	
@@ -79,6 +88,8 @@ public class ProductoController {
 	
 	@GetMapping("/admin/editarProducto/eliminar/{id}")
 	public String eliminarProducto(@PathVariable("id") long id) {
+		List<LineaVenta> lista = lineaVentaRepository.findAll().stream().filter(l -> l.getProducto().getId() == id).toList();
+		lista.stream().forEach(l -> l.setProducto(null));
 		productoService.deleteById(id);
 		return "redirect:/admin/editarProducto";
 	}
