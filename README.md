@@ -1,2 +1,10 @@
 # CultoDeAtenea
-Proyecto dedicado a la creación de una tienda online de armas y armaduras, así como de todo cosa relacionada con el medievo y otras épocas tanto anteriores como posteriores.
+Proyecto final de 1º de DAM, consiste en una aplicación web usando spring, la cual es una tienda de armas antiguas.
+
+El proyecto se ejecuta en el puerto 9000.
+
+Usuarios de la aplicación:
+- Usuarios:
+  - Usr: user Cnt: 1234
+- Admins
+  - Usr: admin Cnt: admin
