@@ -16,22 +16,19 @@ import org.springframework.web.context.WebApplicationContext;
 import com.salesianostriana.dam.cultodeatenea.model.LineaVenta;
 import com.salesianostriana.dam.cultodeatenea.model.Producto;
 import com.salesianostriana.dam.cultodeatenea.model.Venta;
-import com.salesianostriana.dam.cultodeatenea.repository.LineaVentaRepository;
-import com.salesianostriana.dam.cultodeatenea.repository.ProductoRepository;
-import com.salesianostriana.dam.cultodeatenea.repository.VentaRepository;
 
 @Repository
 @Scope(value = WebApplicationContext.SCOPE_SESSION, proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class CarritoService {
 
 	@Autowired
-	private ProductoRepository productoRepository;
+	private ProductoService productoService;
 	
 	@Autowired
-	private VentaRepository ventaRepository;
+	private VentaService ventaService;
 	
 	@Autowired
-	private LineaVentaRepository lineaVentaRepository;
+	private LineaVentaService lineaVentaService;
 
 	private Map<Producto, Integer> productos = new HashMap<>();
 
@@ -77,7 +74,7 @@ public class CarritoService {
 		
 		if (!productos.isEmpty()) {
 			for (Map.Entry<Producto, Integer> entrada : productos.entrySet()) {
-				p = productoRepository.findById(entrada.getKey().getId());
+				p = productoService.findById(entrada.getKey().getId());
 				
 				if (p.isPresent()) {
 					if (entrada.getValue() >= 1) {
@@ -90,14 +87,14 @@ public class CarritoService {
 					}
 				}
 			}
-			ventaRepository.save(v);
+			ventaService.save(v);
 			
 			v.getProductos().stream()
 			.forEach(LineaVenta::calcularSubTotal);
 			
 			v.calcularTotal();
 			
-			lineaVentaRepository.saveAll(v.getProductos());
+			lineaVentaService.saveAll(v.getProductos());
 		}
 		
 		

@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.salesianostriana.dam.cultodeatenea.model.LineaVenta;
 import com.salesianostriana.dam.cultodeatenea.model.Producto;
-import com.salesianostriana.dam.cultodeatenea.repository.LineaVentaRepository;
+import com.salesianostriana.dam.cultodeatenea.service.LineaVentaService;
 import com.salesianostriana.dam.cultodeatenea.service.ProductoService;
 
 @Controller
@@ -26,7 +26,7 @@ public class ProductoController {
 	ProductoService productoService;
 	
 	@Autowired
-	LineaVentaRepository lineaVentaRepository;
+	LineaVentaService lineaVentaService;
 	
 	@GetMapping("/")
 	public String inicio(Model model) {
@@ -89,7 +89,7 @@ public class ProductoController {
 	
 	@GetMapping("/admin/editarProducto/eliminar/{id}")
 	public String eliminarProducto(@PathVariable("id") long id) {
-		List<LineaVenta> lista = lineaVentaRepository.findAll()
+		List<LineaVenta> lista = lineaVentaService.findAll()
 				.stream()
 				.filter(l -> l.getProducto().getId() == id)
 				.collect(Collectors.toList());
