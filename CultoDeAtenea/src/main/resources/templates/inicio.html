@@ -28,7 +28,7 @@
         </div>
     </a>
 
-    <div class="d-flex flex-row flex-wrap align-content-around">
+    <div class="d-flex flex-row flex-wrap align-content-around pt-2">
         <div class="card inicio h-auto m-auto mb-2" th:each="producto : ${listaProductos}">
             <img src="#" class="card-img-top" alt="#" th:alt="${producto.nombre}" th:src="${producto.imagen}">
             <div class="card-body container-fluid">
