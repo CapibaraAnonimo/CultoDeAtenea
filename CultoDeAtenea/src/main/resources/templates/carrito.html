@@ -17,44 +17,39 @@
 <body>
 <header class="publico" th:replace="~{fragmentos/headerPrincipal::headerPrincipal}"></header>
 
-<div class="container-fluid">
-    <div class="border border-2 border-secondary bg-light row justify-content-around rounded-top py-2">
-        <div class="col-2">Nombre</div>
-        <div class="col-2">Imagen</div>
-        <div class="col-2">Fabricante</div>
-        <div class="col-2">Categoría</div>
-        <div class="col-2 text-end">Precio</div>
-    </div>
-
-    <div class="border-bottom border-info bg-light border-2 my-2 p-0"></div>
-
-    <div class="border border-2 border-secondary bg-light row justify-content-around mb-1"
-         th:each="producto : ${productos.entrySet()}">
-        <div class="col-2" th:text="${producto.key.nombre}"></div>
-        <div class="col-2" style="height: 50px">
-            <img alt="" th:alt="${producto.key.nombre}" class="col-2"
-                 style="max-height: 100%; width: 70px; display: block; object-fit: cover;"
-                 th:src="${producto.key.imagen}" src="">
-        </div>
-        <div class="col-2" th:text="${producto.key.marca}"></div>
-        <div class="col-2" th:text="${producto.key.categoria}"></div>
-        <div class="col-2 text-end" th:text="${producto.key.precio}"></div>
-
-        <div class="col-2 text-end" th:text="${producto.value}"></div>
-
-        <div class="col-2 text-end" th:text="${producto.value * producto.key.precio}"></div>
-
-        <a class="btn btn-primary btn-sm" type="button"
-           th:href="@{/carrito/eliminar/{id}(id=${producto.key.id})}">Acaba con uno</a>
-        <a class="btn btn-primary btn-sm" type="button"
-           th:href="@{/carrito/eliminarAll/{id}(id=${producto.key.id})}">Acaba con todos</a>
-    </div>
-    <a class="btn btn-primary btn-sm" type="button"
-       th:href="@{/}">Seguir comprando</a>
-    <a class="btn btn-primary btn-sm" type="button"
-       th:href="@{/carrito/checkout}">Checkout</a>
-</div>
-
-<footer th:replace="~{fragmentos/footer::footer}"></footer>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Marca</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Ación</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="producto : ${productos.entrySet()}">
+        <th scope="row" th:text="${producto.key.nombre}">
+            <a th:href="@{/buscar}">Nombre</a>
+        </th>
+        <td th:text="${producto.key.marca}">Marca</td>
+        <td th:text="${producto.key.precio} + ' x ' + ${producto.value} + ' = ' + ${producto.value * producto.key.precio}">
+            Precio
+        </td>
+        <td>
+            <a class="btn btn-primary btn-sm" type="button"
+               th:href="@{/carrito/eliminar/{id}(id=${producto.key.id})}">Acaba con uno</a>
+            <a class="btn btn-primary btn-sm" type="button"
+               th:href="@{/carrito/eliminarAll/{id}(id=${producto.key.id})}">Acaba con todos</a>
+        </td>
+    </tr>
+    <tr>
+        <td class="" colspan="4">
+            <a class="btn btn-primary btn-sm" type="button" th:href="@{/}">Seguir comprando</a>
+            <a class="btn btn-primary btn-sm" type="button" th:href="@{/carrito/checkout}">Checkout</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
 </body>
+<footer th:replace="~{fragmentos/footer::footer}"></footer>
 </html>
