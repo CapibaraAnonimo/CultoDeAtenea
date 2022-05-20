@@ -58,10 +58,10 @@
                     <div class="col-8 col-md-5 mb-5">
                         <div class="form-floating">
                             <select class="form-select" id="marca" th:field="*{marca}" required>
-                                <option th:value="'Marca0'" selected>Escoge una Opción</option>
-                                <option value="Marca1" th:value="'Marca1'">Marca1</option>
-                                <option value="Marca2" th:value="'Marca2'">Marca2</option>
-                                <option value="Marca3" th:value="'Marca3'">Marca3</option>
+                                <option th:value="''" selected>Escoge una Opción</option>
+                                <option value="Marca1" th:value="'ColdSteel'">ColdSteel</option>
+                                <option value="Marca2" th:value="'Deepeeka'">Deepeeka</option>
+                                <option value="Marca3" th:value="'Arms&Armor'">Arms&Armor</option>
                             </select>
                             <label class="form-label " for="marca">Marca</label>
                         </div>
@@ -76,10 +76,10 @@
                     <div class="col-12 col-md-5 mb-5">
                         <div class="form-floating">
                             <select class="form-select" id="categoria" th:field="*{categoria}" required>
-                                <option th:value="'Categoría0'" selected>Escoge una Opción</option>
-                                <option value="Categoría1" th:value="'Categoría1'">Categoría1</option>
-                                <option value="Categoría2" th:value="'Categoría2'">Categoría2</option>
-                                <option value="Categoría3" th:value="'Categoría3'">Categoría3</option>
+                                <option th:value="''" selected>Escoge una Opción</option>
+                                <option value="Categoría1" th:value="'Espada'">Espada</option>
+                                <option value="Categoría2" th:value="'Arma de asta'">Arma de asta</option>
+                                <option value="Categoría3" th:value="'Arma pesada'">Arma pesada</option>
                             </select>
                             <label class="form-label " for="categoria">Categoría</label>
                         </div>
@@ -101,7 +101,7 @@
                             <div>
                                 <input class="form-check-input" type="radio" name="clasificacion"
                                        id="battleReady"
-                                       value="battleReady" th:field="*{clasificacion}" th:value="battleReady"
+                                       value="BattleReady" th:field="*{clasificacion}" th:value="BattleReady"
                                        required>
                                 <label class="form-check-label text-light" for="battleReady">Battle
                                     Ready</label>
@@ -266,7 +266,7 @@
                 <div class="row">
                     <button type="submit" class="btn btn-primary mx-auto col-3 col-md-4 col-lg-3 col-xxl-2"
                             name="enviar" value="enviar">
-                        Añadir Producto
+                        Editar Producto
                     </button>
                 </div>
             </form>
