@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.salesianostriana.dam.cultodeatenea.model.LineaVenta;
 import com.salesianostriana.dam.cultodeatenea.model.Producto;
 import com.salesianostriana.dam.cultodeatenea.repository.LineaVentaRepository;
 import com.salesianostriana.dam.cultodeatenea.service.ProductoService;
