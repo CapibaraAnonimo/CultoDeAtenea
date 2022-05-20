@@ -8,3 +8,4 @@ Usuarios de la aplicación:
   - Usr: user Cnt: 1234
 - Admins
   - Usr: admin Cnt: admin
+  - Usr: 1 Cnt: 1
