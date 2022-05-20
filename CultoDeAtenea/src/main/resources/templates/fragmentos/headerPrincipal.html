@@ -21,48 +21,48 @@
             <a class="navbar-brand text-dark w-auto" href="#" th:href="@{/}">Culto de atenea</a>
         </div>
     </div>
-    <nav class="sticky-top navbar navbar-expand-md navbar-dark d-flex flex-column flex-md-row justify-content-start"
-         th:fragment="nav">
-        <div class="container-fluid d-flex flex-column flex-md-row justify-content-start w-100">
-            <div class="justify-content-start">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarPrincipal">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <!--Navbar-->
-                <div class="collapse navbar-collapse" id="navbarPrincipal">
-                    <ul class="navbar-nav">
-                        <li class="">
-                            <a class="nav-link" href="" th:href="@{/buscar?buscar=espada}"
-                               aria-expanded="false">Espadas</a>
-                        </li>
+    <nav class="navbar navbar-expand-md navbar-dark row justify-content-start" th:fragment="nav">
+        <div class="col-12 col-md-auto">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarPrincipal">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!--Navbar-->
+            <div class="collapse navbar-collapse" id="navbarPrincipal">
+                <ul class="navbar-nav">
+                    <li class="">
+                        <a class="nav-link" href="" th:href="@{/buscar?buscar=espada}"
+                           aria-expanded="false">Espadas</a>
+                    </li>
 
-                        <li class="">
-                            <a class="nav-link" href="" th:href="@{/buscar?buscar=arma+de+asta}" aria-expanded="false">Armas
-                                de Asta</a>
-                        </li>
+                    <li class="">
+                        <a class="nav-link" href="" th:href="@{/buscar?buscar=arma+de+asta}" aria-expanded="false">Armas
+                            de Asta</a>
+                    </li>
 
-                        <li class="">
-                            <a class="nav-link" href="" th:href="@{/buscar?buscar=arma+pesada}" aria-expanded="false">Armas
-                                Pesadas</a>
-                        </li>
+                    <li class="">
+                        <a class="nav-link" href="" th:href="@{/buscar?buscar=arma+pesada}" aria-expanded="false">Armas
+                            Pesadas</a>
+                    </li>
 
-                        <li class="" sec:authorize="hasRole('ROLE_ADMIN')">
-                            <a class="nav-link" href="" th:href="@{/admin/noticias}"
-                               aria-expanded="false">Administrar</a>
-                        </li>
-                    </ul>
+                    <li class="" sec:authorize="hasRole('ROLE_ADMIN')">
+                        <a class="nav-link" href="" th:href="@{/admin/noticias}"
+                           aria-expanded="false">Administrar</a>
+                    </li>
+                </ul>
 
-                    <form class="col-12 col-md-5 d-flex flex-nowrap" method="GET" th:action="@{/buscar}">
-                        <input class="form-control me-2" type="text" placeholder="Nombre del producto"
-                               name="buscar" id="buscar" th:value="${param.buscar}"/>
-                        <input class="btn btn-dark bg-primary bg-opacity-10" type="submit" value="Enviar"/>
-                    </form>
-                </div>
+                <form class="col-12 col-md-5 d-flex flex-nowrap" method="GET" th:action="@{/buscar}">
+                    <input class="form-control me-2" type="text" placeholder="Nombre del producto"
+                           name="buscar" id="buscar" th:value="${param.buscar}"/>
+                    <input class="btn btn-dark bg-primary bg-opacity-10" type="submit" value="Enviar"/>
+                </form>
             </div>
+        </div>
 
-            <!--Modal para inicio de sesión-->
-            <div sec:authorize="!isAuthenticated()">
+        <!--Modal para inicio de sesión-->
+        <div class="col d-block d-md-flex justify-content-end">
+            <!--<div class="col-1 offset-md-0 offset-lg-4 offset-xl-5 offset-xxl-6" sec:authorize="!isAuthenticated()">-->
+            <div class="" sec:authorize="!isAuthenticated()">
                 <button type="button" class="btn btn-dark bg-primary bg-opacity-10" data-bs-toggle="modal"
                         data-bs-target="#inicioSesion">
                     Iniciar Sesion
@@ -101,7 +101,7 @@
                     </div>
                 </div>
             </div>
-            <div sec:authorize="isAuthenticated()">
+            <div class="col-auto" sec:authorize="isAuthenticated()">
                 <a class="btn btn-dark bg-primary bg-opacity-10" th:href="@{/logout}">Desconectarse</a>
             </div>
         </div>

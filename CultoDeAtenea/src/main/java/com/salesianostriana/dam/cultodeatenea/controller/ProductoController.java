@@ -3,6 +3,7 @@ package com.salesianostriana.dam.cultodeatenea.controller;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -91,7 +92,7 @@ public class ProductoController {
 		List<LineaVenta> lista = lineaVentaRepository.findAll()
 				.stream()
 				.filter(l -> l.getProducto().getId() == id)
-				.toList();
+				.collect(Collectors.toList());
 		lista.stream()
 		.forEach(l -> l.setProducto(null));
 		productoService.deleteById(id);
