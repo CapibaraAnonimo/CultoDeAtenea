@@ -15,6 +15,8 @@
     <script type="text/javascript" src="../static/principal.js" defer th:src="@{/principal.js}"></script>
 </head>
 <body>
+<header class="publico" th:replace="~{fragmentos/headerPrincipal::headerPrincipal}"></header>
+
 <div class="container-fluid">
     <div class="border border-2 border-secondary bg-light row justify-content-around rounded-top py-2">
         <div class="col-2">Nombre</div>
@@ -52,5 +54,7 @@
     <a class="btn btn-primary btn-sm" type="button"
        th:href="@{/carrito/checkout}">Checkout</a>
 </div>
+
+<footer th:replace="~{fragmentos/footer::footer}"></footer>
 </body>
 </html>
