@@ -3,7 +3,7 @@ body > div:first-of-type {
     background-repeat: no-repeat;
 }
 
-footer{
+footer {
     background-color: #121314;
     background-image: url("https://s3.amazonaws.com/koa-media-library/wp-media-folder-kult-of-athena//www/wp-content/uploads/2020/11/footer.png");
     background-repeat: no-repeat;
@@ -15,25 +15,25 @@ footer{
     padding-right: 30px;
 }
 
-footer>div>div{
+footer > div > div {
     width: 262.500px;
 }
 
-footer ul{
+footer ul {
     list-style-type: inherit;
 }
 
-footer ul li{
+footer ul li {
     border-bottom: #505152 1px solid;
     padding-bottom: 20px;
 }
 
-footer a{
+footer a {
     color: #bfbfbf;
     text-decoration: none;
 }
 
-footer a:hover{
+footer a:hover {
     color: #be9359;
 }
 
@@ -56,7 +56,7 @@ header.publico {
     text-decoration: none;
 }
 
-.imagenCarrito svg{
+.imagenCarrito svg {
     color: goldenrod;
 }
 
@@ -103,6 +103,20 @@ header.publico {
         width: 100%;
         margin: auto;
     }
+}
+
+.radioInvalid:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -4px;
+    left: 0px;
+    position: relative;
+    background-color: red;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
 }
 
 .title-section {

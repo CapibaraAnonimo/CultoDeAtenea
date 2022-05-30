@@ -41,7 +41,7 @@
 
             <div class="tab-content">
                 <div class="tab-pane active container-fluid" id="nuevoProducto">
-                    <form name="aniadir" class="container-fluid" action="#" method="post"
+                    <form name="aniadir" id="aniadir" class="container-fluid" action="#" method="post"
                           th:action="@{/admin/nuevoProducto/submit}" th:object="${producto}">
                         <div class="row">
                             <div class="col-md-6 mb-5">
@@ -65,7 +65,7 @@
                         <div class="row">
                             <div class="col-8 col-md-5 mb-5">
                                 <div class="form-floating">
-                                    <select class="form-select" id="marca" th:field="*{marca}" required>
+                                    <select name="marca" class="form-select" id="marca" th:field="*{marca}" required>
                                         <option th:value="''" selected>Escoge una Opción</option>
                                         <option value="Marca1" th:value="'ColdSteel'">ColdSteel</option>
                                         <option value="Marca2" th:value="'Deepeeka'">Deepeeka</option>

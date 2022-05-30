@@ -1,11 +1,25 @@
 let formulario = document.forms.aniadir;
-let descripcion = formulario.descripcion;
+let clasificacion = formulario.elements.clasificacion;
+let marca = formulario.marca;
 let enviar = formulario.enviar;
 
-descripcion.addEventListener("change", valDescripcion);
+for (let c of clasificacion) {
+    c.addEventListener("change", valClasificacion);
+}
 
-function valDescripcion(q) {
-    if (descripcion.value()[0] === descripcion.value()[0].toUpperCase()) {
+function valClasificacion(q) {
+    let seleccionado;
 
+    if (clasificacion[0].checked) {
+        clasificacion[0].classList.add("radioInvalid");
+    }
+
+    for (let c of clasificacion) {
+        if(c.checked)
+            seleccionado = c;
+    }
+
+    if (marca.value() === 'ColdSteel' && seleccionado.value() === 'decorativa') {
+        clasificacion.document.style('color: red');
     }
 }
