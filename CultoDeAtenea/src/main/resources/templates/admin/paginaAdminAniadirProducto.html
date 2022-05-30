@@ -67,9 +67,9 @@
                                 <div class="form-floating">
                                     <select name="marca" class="form-select" id="marca" th:field="*{marca}" required>
                                         <option th:value="''" selected>Escoge una Opción</option>
-                                        <option value="Marca1" th:value="'ColdSteel'">ColdSteel</option>
-                                        <option value="Marca2" th:value="'Deepeeka'">Deepeeka</option>
-                                        <option value="Marca3" th:value="'Arms&Armor'">Arms&Armor</option>
+                                        <option value="ColdSteel" th:value="'ColdSteel'">ColdSteel</option>
+                                        <option value="Deepeeka" th:value="'Deepeeka'">Deepeeka</option>
+                                        <option value="Arms&Armor" th:value="'Arms&Armor'">Arms&Armor</option>
                                     </select>
                                     <label class="form-label " for="marca">Marca</label>
                                 </div>
@@ -129,6 +129,8 @@
                                         <label class="form-check-label text-light" for="decorativa">Decorativa</label>
                                     </div>
                                 </div>
+
+                                <div class="mensajeError text-danger" id="errorClasificación" >Apellido Incorrecto</div>
                             </div>
                         </div>
 

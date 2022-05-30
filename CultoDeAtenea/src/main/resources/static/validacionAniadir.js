@@ -1,25 +1,35 @@
 let formulario = document.forms.aniadir;
 let clasificacion = formulario.elements.clasificacion;
-let marca = formulario.marca;
+let marca = formulario.elements.marca;
 let enviar = formulario.enviar;
+let errores = document.querySelectorAll(".mensajeError");
 
 for (let c of clasificacion) {
     c.addEventListener("change", valClasificacion);
 }
+marca.addEventListener("change", valClasificacion);
 
-function valClasificacion(q) {
-    let seleccionado;
 
-    if (clasificacion[0].checked) {
-        clasificacion[0].classList.add("radioInvalid");
-    }
+for (let e of errores) {
+    e.style.display = 'none';
+}
+
+
+function valClasificacion() {
+    let claSeleccionado;
 
     for (let c of clasificacion) {
-        if(c.checked)
-            seleccionado = c;
+        if (c.checked)
+            claSeleccionado = c;
     }
 
-    if (marca.value() === 'ColdSteel' && seleccionado.value() === 'decorativa') {
-        clasificacion.document.style('color: red');
+    if (marca.options[marca.selectedIndex].value === 'ColdSteel' && clasificacion.value === 'decorativa') {
+        clasificacion[2].classList.add('radioInvalid');
+        enviar.classList.add('disabled')
+        document.getElementById("errorClasificación").style.display = 'block';
+    } else {
+        clasificacion[2].classList.remove('radioInvalid');
+        enviar.classList.remove('disabled')
+        document.getElementById("errorClasificación").style.display = 'none';
     }
 }
